@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+
+
+{% load static %}
+{% load i18n %}
+{% load static i18n %}
+
+{% block title %} -HOME {% endblock title %}
+  {% block content %} 
+
+  <main>
+    <section class="hero">
+      <div class="hero__container">
+        <div class="hero__content">
+          <h1>
+            {% blocktrans %}
+              Welcome to KYD-FINANCES
+              THE BEST IN THE FINANCIAL MARKET TODAY
+            {% endblocktrans %}
+          </h1>
+          <p>
+            {% blocktrans %}
+              Join us today to enjoy our top-notch services.
+              Here you have access to pay bills all over the world with little charges.
+              You would also have access to a free credit card worth $250.
+              Exclusively for new users only.
+            {% endblocktrans %}
+          </p>
+          <button class="hero__button">{% trans "Join Us Now" %}</button>
+        </div>
+        <div class="hero__img">
+          <img id="hero-img" src="{% static 'main/images/svg1.svg' %}" alt="{% trans "Hero Image" %}">
+        </div>
+      </div>
+      <div class="rotating-logos__container">
+        <div class="rotating-logos__track">
+          <span class="rotating-logos__text">{% trans "Seamless" %}</span>
+          <span class="rotating-logos__text">{% trans "Reliable" %}</span>
+          <span class="rotating-logos__text">{% trans "Efficient" %}</span>
+          <span class="rotating-logos__text">{% trans "Trustworthy" %}</span>
+          <span class="rotating-logos__text">{% trans "Innovative" %}</span>
+          <span class="rotating-logos__text">{% trans "UserFriendly" %}</span>
+          <span class="rotating-logos__text">{% trans "Convenient" %}</span>
+          <span class="rotating-logos__text">{% trans "Hassle free" %}</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="why-choose-us">
+      <div class="why-choose-us__container">
+        <div class="intro-text">
+          <h1>{% trans "Why choose us" %}</h1>
+          <p>
+            {% blocktrans %}
+              Whether you’re looking for a secure platform to manage your savings or a comprehensive tool for investing,
+              KYD-FINANCES has you covered. Here are a few reasons why you should choose us.
+            {% endblocktrans %}
+          </p>
+        </div>
+        <div class="features-grid">
+          <div class="feature">
+            <i class="fa-solid fa-lock icon"></i>
+            <h3>{% trans "Secure" %}</h3>
+            <p>
+              {% trans "Your privacy and security are our top priority. We use industry-leading encryption protocols and comply with the strictest financial regulations to ensure your information is always safe." %}
+            </p>
+          </div>
+          <div class="feature">
+            <i class="fa-solid fa-lightbulb icon"></i>
+            <h3>{% trans "Innovative" %}</h3>
+            <p>
+              {% trans "We’re constantly updating our platform to provide you with the best tools and features." %}
+            </p>
+          </div>
+          <div class="feature">
+            <i class="fa-solid fa-headset icon"></i>
+            <h3>{% trans "24/7 Support" %}</h3>
+            <p>
+              {% trans "Our team is available 24/7 to help you with any questions or issues you may have." %}
+            </p>
+          </div>
+          <div class="feature">
+            <i class="fa-solid fa-money-bill icon"></i>
+            <h3>{% trans "Affordable Pricing & Plans" %}</h3>
+            <p>
+              {% trans "Get started today with our free plan, or choose from one of our affordable premium options that offer even more advanced features and support." %}
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer__container">
+        <div class="newsletter__container">
+          <h1>{% trans "Join our newsletter" %}</h1>
+          <p>
+            {% trans "Subscribe to our newsletter to get the latest updates on our services and promotions." %}
+          </p>
+          <form action="/submit" method="post">
+            <input type="email" name="email" placeholder="{% trans 'Enter your email' %}" required>
+            <button type="submit">{% trans "Subscribe" %}</button>
+          </form>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script src="{% static 'main/app.js' %}"></script>
+</body>
+{% endblock content %}
+
+</html>
