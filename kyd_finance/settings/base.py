@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     # Django apps generated
 
     # THIRD PARTY APPS
-    'rosetta'
+    'rosetta',
+    'parler'
 ]
 
 
@@ -144,3 +145,17 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# setting up django parler for translating models
+PARLER_LANGUAGES = {
+    None: (
+        {'code': 'en'},
+        {'code': 'fr'},
+        {'code': 'es'},
+    ),
+    'default': {
+        'fallback': 'en',
+        'hide_untranslated': False,
+    }
+}
