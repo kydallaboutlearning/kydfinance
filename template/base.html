@@ -2,6 +2,9 @@
 {% load i18n %}
 {% load static i18n %}
 
+
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
 <!DOCTYPE html>
 <html lang="{{current_language}}">
 
@@ -31,6 +34,21 @@
           <li class="navbar__item">
             <a href="/" class="navbar__links">{% trans "Pricing" %}</a>
           </li>
+
+          <li class="navbar__item">
+            <a href="/" class="navbar__links language"><p>{% translate "Language" %} <i class="fa-solid fa-caret-down"></i></p>
+              <ul class="languages__dropdown">
+                {% for language in languages %}
+                  <li>
+                    <a class= "language__link" href="/{{ language.code }}/"
+                    {% if language.code == LANGUAGE_CODE %} class="selected"{% endif %}>
+                      {{ language.name_local }}
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul></a>
+          </li>
+
           <li class="navbar__btn mobile">
             <a href="/signup.html" class="navbar__links">{% trans "Log-in/Sign Up" %}</a>
           </li>
