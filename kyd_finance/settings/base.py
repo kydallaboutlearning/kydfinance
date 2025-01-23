@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+from django.utils.translation import gettext_lazy as _
 
 
 
@@ -94,6 +95,16 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
+
+# adding the language code
+LANGUAGES = [
+    ('en', _('English')),
+    ('fr', _('French')),
+    ('es', _('Spanish')),
+]
+
+# adding locale path
+LOCALE_PATHS = [BASE_DIR / 'locale',]
 
 TIME_ZONE = 'UTC'
 
