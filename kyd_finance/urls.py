@@ -35,6 +35,7 @@ from django.shortcuts import redirect
 urlpatterns = (
     path('admin/', admin.site.urls),
     path(('rosetta/'), include('rosetta.urls')),
+    path('',include('main.urls',namespace='main'))
 )
 
 
