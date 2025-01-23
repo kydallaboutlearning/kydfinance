@@ -44,6 +44,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Django apps generated
+    'accounts.apps.AccountsConfig',
+    'main.apps.MainConfig'
+
 
     # THIRD PARTY APPS
     'rosetta',
