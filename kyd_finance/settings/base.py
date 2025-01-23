@@ -45,7 +45,7 @@ INSTALLED_APPS = [
 
     # Django apps generated
     'accounts.apps.AccountsConfig',
-    'main.apps.MainConfig'
+    'main.apps.MainConfig',
 
 
     # THIRD PARTY APPS
