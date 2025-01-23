@@ -24,19 +24,12 @@ from django.utils.translation import gettext_lazy as _
 from django.shortcuts import redirect
 
 
-
-
-
-
-
-
-
 # Add internationalized URL patterns
 urlpatterns = [
     path('admin/', admin.site.urls),
     path(('rosetta/'), include('rosetta.urls')),
-    path(_('account/'), include('accounts.urls',namespace='accounts')),
-    path('blog/', include('blog.urls',namespace='blog')),
+    # path(_('account/'), include('accounts.urls',namespace='accounts')),
+    # path('blog/', include('blog.urls',namespace='blog')),
     path('',include('main.urls',namespace='main')),
 
 ]
