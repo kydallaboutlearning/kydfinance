@@ -51,6 +51,28 @@
   font-size: 1.3rem;
 }
 
+.navbar__links.language {
+ width: 10rem;
+ height: 50px;
+ color: #fff;
+ padding: 0 1rem;
+ margin-top: 1rem;
+ display: flex;
+ align-items: center;
+ font-size: 1.3rem;
+ text-decoration: none;
+}
+
+
+.navbar__links.language:hover {
+  transition: all 0.3s ease;
+  background-color: #999;
+  color: #000;
+  align-items: center;
+}
+
+
+
 /* added the hover effect */
 .navbar__links:hover {
   color: rgb(68, 68, 180);
