@@ -1,0 +1,50 @@
+{% load static %}
+{% load i18n %}
+{% load static i18n %}
+
+<!DOCTYPE html>
+<html lang="{{current_language}}">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{% trans "KYD-FINANCES" %} {% block title %} {% endblock title%}</title>
+
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+  <script src="https://kit.fontawesome.com/6012a26c72.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar" role="navigation" aria-label="{% trans 'Main Navigation' %}">
+      <div class="navbar__container">
+        <a href="/" class="navbar-logo"> {% trans "KYD-FINANCE" %} </a>
+
+        <ul class="navbar__menu">
+          <li class="navbar__item">
+            <a href="/" class="navbar__links">{% trans "Home" %}</a>
+          </li>
+          <li class="navbar__item">
+            <a href="/" class="navbar__links">{% trans "Services" %}</a>
+          </li>
+          <li class="navbar__item">
+            <a href="/" class="navbar__links">{% trans "Pricing" %}</a>
+          </li>
+          <li class="navbar__btn mobile">
+            <a href="/signup.html" class="navbar__links">{% trans "Log-in/Sign Up" %}</a>
+          </li>
+        </ul>
+        <div class="navbar__btn desktop">
+          <a href="/signup.html" class="button">{% trans "Log-in/Sign Up" %}</a>
+        </div>
+        <div class="navbar__toggle" id="mobile-menu">
+          <div class="toggle"></div>
+          <div class="toggle"></div>
+          <div class="toggle"></div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+{% block content %} {% endblock content %}
