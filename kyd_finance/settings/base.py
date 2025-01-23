@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-7p1-hhz(3u$-lpos#42elg=q1b3&fyem3sq5)$tpp$-ncj214n
 
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -35,6 +35,10 @@ ALLOWED_HOSTS = []
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+
+    # adding the middleware for internalization
+    'django.middelware.locale.LocalMiddleware'
+
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',

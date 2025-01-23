@@ -16,6 +16,8 @@ DEBUG = True
 # setting up installed apps
 
 INSTALLED_APPS = [
+
+     # DJANGO INTERNAL APPS
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
