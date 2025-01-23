@@ -54,8 +54,8 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
 
-    # adding the middleware for internalization
-    'django.middelware.locale.LocalMiddleware'
+    # Adding the middleware for internalization
+    'django.middleware.locale.LocaleMiddleware',  
 
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -112,6 +112,11 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
+
+USE_I18N = True
+
+# Enable localization
+USE_L10N = True
 
 # adding the language code
 LANGUAGES = [

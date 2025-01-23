@@ -21,13 +21,20 @@ from django.urls import path,include
 # imporrting requirements for internalization
 from django.conf.urls.i18n import i18n_patterns
 from django.utils.translation import gettext_lazy as _
+from django.shortcuts import redirect
 
 
 
 
 
 
-urlpatterns = i18n_patterns([
-    path(_('admin/'), admin.site.urls),
-    path(('rosetta/'), include('rosetta.urls'))
-])
+
+
+
+# Add internationalized URL patterns
+urlpatterns = (
+    path('admin/', admin.site.urls),
+    path(('rosetta/'), include('rosetta.urls')),
+)
+
+
