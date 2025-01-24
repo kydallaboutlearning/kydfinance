@@ -25,13 +25,11 @@ from django.shortcuts import redirect
 
 
 # Add internationalized URL patterns
-urlpatterns = [
+urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls),
     path(('rosetta/'), include('rosetta.urls')),
     # path(_('account/'), include('accounts.urls',namespace='accounts')),
     # path('blog/', include('blog.urls',namespace='blog')),
     path('',include('main.urls',namespace='main')),
-
-]
-
+    )
 
