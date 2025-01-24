@@ -24,19 +24,32 @@
     <nav class="navbar" role="navigation" aria-label="{% trans 'Main Navigation' %}">
       <div class="navbar__container">
         <a href="/" class="navbar-logo"> {% trans "KYD-FINANCE" %} </a>
-
+        .navbar__menu
         <ul class="navbar__menu">
           <li class="navbar__item">
             <a href="/" class="navbar__links">{% trans "Home" %}</a>
           </li>
           <li class="navbar__item">
-            <a href="/" class="navbar__links">{% trans "Services" %}</a>
+            <div class="navbar__links services">{% trans "Features" %}
+              <ul class="services__dropdown">
+                  <li class="service__list">
+                    <a class="language__link" href="/">
+                  Services
+                    </a>
+                  </li>
+                  <li class="language__list">
+                    <a class="language__link" href="/">
+                  Blog
+                    </a>
+                  </li>
+          </ul>
+            </div>
           </li>
           <li class="navbar__item">
             <a href="/" class="navbar__links">{% trans "Pricing" %}</a>
           </li>
 
-          <li class="navbar__item">
+          <li class="navbar__item dn">
             <div class="navbar__links language">
               <p>
                 Language: {% if LANGUAGE_CODE %}
@@ -45,7 +58,7 @@
                 <i class="fa-solid fa-caret-down"></i>
               </p>
               
-                <ul class="languages__dropdown">
+                <ul class="languages dropdown">
                     {% for language in languages %}
                       <li class="language__list">
                         <a class="language__link" href="/{{ language.code }}/">
@@ -56,8 +69,8 @@
               </ul>
             </div>
           </li>
-          <li class="navbar__btn mobile">
-            <a href="/signup.html" class="navbar__links log">{% trans "Sign In" %}</a>
+          <li class="navbar__btn mobile log">
+            <a href="/signup.html" class="navbar__links ">{% trans "Sign In" %}</a>
           </li>
 
           <li class="navbar__btn mobile">
