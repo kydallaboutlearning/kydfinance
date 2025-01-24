@@ -37,20 +37,24 @@
           </li>
 
           <li class="navbar__item">
-            <a href="/" class="navbar__links language">
-              <p>{% translate "Language" %} <i class="fa-solid fa-caret-down"></i></p>
-              <div class="language-dropdown-wrapper">
+            <div class="navbar__links language">
+              <p>
+                Language: {% if LANGUAGE_CODE %}
+                  {{ LANGUAGE_CODE }}
+                {% endif %}
+                <i class="fa-solid fa-caret-down"></i>
+              </p>
+              
                 <ul class="languages__dropdown">
-                  {% for code, name in LANGUAGES %}
-                    <li class="language__list">
-                      <a class="language__link" href="{% url 'set_language' %}?language={{ code }}"
-                      {% if code == LANGUAGE_CODE %} class="selected"{% endif %}>
-                        {{ name }}
-                      </a>
-                    </li>
-                  {% endfor %}
+                    {% for language in languages %}
+                      <li class="language__list">
+                        <a class="language__link" href="/{{ language.code }}/">
+                          {{ language.name_local }}
+                        </a>
+                      </li>
+                    {% endfor %}
               </ul>
-            </a>
+            </div>
           </li>
           <li class="navbar__btn mobile">
             <a href="/signup.html" class="navbar__links log">{% trans "Sign In" %}</a>
@@ -73,23 +77,6 @@
           <div class="toggle"></div>
         </div>
       </div>
-      <li class="navbar__item language">
-        <a href="/" class="navbar__links language">
-          <p>{% translate "Language" %} <i class="fa-solid fa-caret-down"></i></p>
-          <div class="language-dropdown-wrapper">
-            <ul class="languages__dropdown">
-              {% for language in LANGUAGES %}
-                <li class="language__list">
-                  <a class="language__link" href="/{{ language.code }}/"
-                  {% if code == LANGUAGE_CODE %} class="selected"{% endif %}>
-                  {% if language.code == LANGUAGE_CODE %} class="selected"{% endif %}>
-                  {{ language.name_local }}
-                  </a>
-                </li>
-              {% endfor %}
-          </ul>
-        </a>
-      </li>
     </nav>
   </header>
 
