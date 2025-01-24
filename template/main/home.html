@@ -90,23 +90,99 @@
       </div>
     </section>
 
+    <!-- pricing section -->
+    <section class="pricing">
+     <h2 class="main-header">{% trans "Choose the plan that fits you best" %}</h2>
+     <div class="pricing-toggle">
+       <div class="toggle-container">
+         <span class="toggle-option">{% trans "Monthly" %}</span>
+         <label class="switch">
+           <input type="checkbox" id="pricing-toggle-checkbox" onclick="SwitchPricing()">
+           <span class="slider"></span>
+         </label>
+         <span class="toggle-option">{% trans "Yearly" %}</span>
+       </div>
+       <div class="percentage-save__container">
+         <div class="percentage-saved">{% trans "save 20%" %}</div>
+       </div>
+     </div>
+   </section>
+   
 
-
-    <!-- Footer -->
-    <footer>
-      <div class="footer__container">
-        <div class="newsletter__container">
-          <h1>{% trans "Join our newsletter" %}</h1>
-          <p>
-            {% trans "Subscribe to our newsletter to get the latest updates on our services and promotions." %}
-          </p>
-          <form action="/submit" method="post">
-            <input type="email" name="email" placeholder="{% trans 'Enter your email' %}" required>
-            <button type="submit">{% trans "Subscribe" %}</button>
-          </form>
-        </div>
-      </div>
-    </footer>
+    <!-- services -->
+<div class="services-container">
+     <!-- Basic Plan -->
+     <div class="services-card">
+       <div class="services-content">
+         <h3>{% trans "Basic Plan" %}</h3>
+         <div class="price-card">
+           <p class="price monthly-price">{% trans "$10/month" %}</p>
+           <p class="price yearly-price hidden">{% trans "$8/month" %}</p>
+           <a href="/signup.html" class="service-button">{% trans "Get Started" %}</a>
+           <p class="basic desc">{% trans "Everything you need to start" %}</p>
+         </div>
+       </div>
+       <div class="card-features">
+         <h2 class="features">{% trans "Features:" %}</h2>
+         <ul class="feature-list">
+           <span class="line"></span>
+           <li class="list">{% trans "Free account with a $250 sign-up bonus." %}</li>
+           <span class="line"></span>
+           <li class="list">{% trans "Cashback on utility bill payments." %}</li>
+           <span class="line"></span>
+         </ul>
+       </div>
+     </div>
+   
+     <!-- Standard Plan -->
+     <div class="services-card">
+       <div class="services-content">
+         <h3>{% trans "Standard Plan" %}</h3>
+         <div class="price-card">
+           <p class="price monthly-price">{% trans "$30/month" %}</p>
+           <p class="price yearly-price hidden">{% trans "$15/month" %}</p>
+           <a href="/signup.html" class="service-button">{% trans "Get Started" %}</a>
+           <p class="standard desc">{% trans "You just get more values" %}</p>
+         </div>
+       </div>
+       <div class="card-features">
+         <h2 class="features">{% trans "Features:" %}</h2>
+         <ul class="feature-list">
+           <span class="line"></span>
+           <li class="list">{% trans "You get Everything in Basic plan" %}</li>
+           <span class="line"></span>
+           <li class="list">{% trans "All on the Budget tools" %}</li>
+           <span class="line"></span>
+         </ul>
+       </div>
+     </div>
+   
+     <!-- Premium Plan -->
+     <div class="services-card">
+       <div class="services-content">
+         <h3>{% trans "Premium Plan" %}</h3>
+         <div class="price-card">
+           <p class="price monthly-price">{% trans "$80/month" %}</p>
+           <p class="price yearly-price hidden">{% trans "$55/month" %}</p>
+           <a href="/signup.html" class="service-button">{% trans "Get Started" %}</a>
+           <p class="premium desc">{% trans "Perfect for business owners" %}</p>
+         </div>
+       </div>
+       <div class="card-features">
+         <h2 class="features">{% trans "Features:" %}</h2>
+         <ul class="feature-list">
+           <span class="line"></span>
+           <li class="list">{% trans "Everything in Standard plan" %}</li>
+           <span class="line"></span>
+           <li class="list">{% trans "Unlimited transactions." %}</li>
+           <span class="line"></span>
+         </ul>
+       </div>
+     </div>
+   </div>
+   </div>
+   </section>
+   
   </main>
 
   <script src="{% static 'main/app.js' %}"></script>
