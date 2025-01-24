@@ -2,9 +2,10 @@
 {% load i18n %}
 {% load static i18n %}
 
-
 {% get_current_language as LANGUAGE_CODE %}
 {% get_available_languages as LANGUAGES %}
+{% get_language_info_list for LANGUAGES as languages %}
+
 <!DOCTYPE html>
 <html lang="{{current_language}}">
 
@@ -36,25 +37,35 @@
           </li>
 
           <li class="navbar__item">
-            <a href="/" class="navbar__links language"><p>{% translate "Language" %} <i class="fa-solid fa-caret-down"></i></p>
-              <ul class="languages__dropdown">
-                {% for language in languages %}
-                  <li>
-                    <a class= "language__link" href="/{{ language.code }}/"
-                    {% if language.code == LANGUAGE_CODE %} class="selected"{% endif %}>
-                      {{ language.name_local }}
-                    </a>
-                  </li>
-                {% endfor %}
-              </ul></a>
+            <a href="/" class="navbar__links language">
+              <p>{% translate "Language" %} <i class="fa-solid fa-caret-down"></i></p>
+              <div class="language-dropdown-wrapper">
+                <ul class="languages__dropdown">
+                  {% for code, name in LANGUAGES %}
+                    <li class="language__list">
+                      <a class="language__link" href="{% url 'set_language' %}?language={{ code }}"
+                      {% if code == LANGUAGE_CODE %} class="selected"{% endif %}>
+                        {{ name }}
+                      </a>
+                    </li>
+                  {% endfor %}
+              </ul>
+            </a>
+          </li>
+          <li class="navbar__btn mobile">
+            <a href="/signup.html" class="navbar__links log">{% trans "Sign In" %}</a>
           </li>
 
           <li class="navbar__btn mobile">
-            <a href="/signup.html" class="navbar__links">{% trans "Log-in/Sign Up" %}</a>
+            <a href="/signup.html" class="navbar__links">{% trans "Sign Up" %}</a>
           </li>
         </ul>
+
+        <div class="navbar__btn desktop ">
+          <a href="/signup.html" class="button log">{% trans "Sign In" %}</a>
+        </div>
         <div class="navbar__btn desktop">
-          <a href="/signup.html" class="button">{% trans "Log-in/Sign Up" %}</a>
+          <a href="/signup.html" class="button">{% trans "Sign Up" %}</a>
         </div>
         <div class="navbar__toggle" id="mobile-menu">
           <div class="toggle"></div>
@@ -62,7 +73,112 @@
           <div class="toggle"></div>
         </div>
       </div>
+      <li class="navbar__item language">
+        <a href="/" class="navbar__links language">
+          <p>{% translate "Language" %} <i class="fa-solid fa-caret-down"></i></p>
+          <div class="language-dropdown-wrapper">
+            <ul class="languages__dropdown">
+              {% for language in LANGUAGES %}
+                <li class="language__list">
+                  <a class="language__link" href="/{{ language.code }}/"
+                  {% if code == LANGUAGE_CODE %} class="selected"{% endif %}>
+                  {% if language.code == LANGUAGE_CODE %} class="selected"{% endif %}>
+                  {{ language.name_local }}
+                  </a>
+                </li>
+              {% endfor %}
+          </ul>
+        </a>
+      </li>
     </nav>
   </header>
 
 {% block content %} {% endblock content %}
+
+   
+    <!-- footer section -->
+<footer>
+  <div class="footer__container">
+    <div class="newsletter__container">
+      <div class="newsletter__content">
+        <h1>{% trans "Join our newsletter" %}</h1>
+        <p>{% trans "Subscribe to our newsletter to get the latest updates on our services and promotions." %}</p>
+        <form action="/submit" method="post">
+          <input type="email" name="email" placeholder="{% trans 'Enter your email' %}" required>
+          <button type="submit">{% trans "Subscribe" %}</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer__links">
+      <div class="footer__links-wrapper">
+        <div class="footer__links-items">
+          <h2>{% trans "About Us" %}</h2>
+          <a href="/">{% trans "How it works" %}</a>
+          <a href="/">{% trans "Testimonials" %}</a>
+          <a href="/">{% trans "Careers" %}</a>
+          <a href="/">{% trans "Investors" %}</a>
+          <a href="/">{% trans "Terms of Service" %}</a>
+        </div>
+
+        <div class="footer__links-items">
+          <h2>{% trans "Contact Us" %}</h2>
+          <a href="/">{% trans "Contact" %}</a>
+          <a href="/">{% trans "Support" %}</a>
+          <a href="/">{% trans "Destinations" %}</a>
+          <a href="/">{% trans "Sponsorships" %}</a>
+        </div>
+      </div>
+
+      <div class="footer__links-wrapper">
+        <div class="footer__links-items">
+          <h2>{% trans "Videos" %}</h2>
+          <a href="/">{% trans "Submit Video" %}</a>
+          <a href="/">{% trans "Ambassadors" %}</a>
+          <a href="/">{% trans "Agency" %}</a>
+          <a href="/">{% trans "Influencer" %}</a>
+        </div>
+
+        <div class="footer__links-items">
+          <h2>{% trans "Social Media" %}</h2>
+          <a href="/" target="_blank" rel="noopener noreferrer">{% trans "Facebook" %}</a>
+          <a href="/">{% trans "Instagram" %}</a>
+          <a href="/">{% trans "Linkedin" %}</a>
+          <a href="/">{% trans "Github" %}</a>
+        </div>
+      </div>
+    </div>
+
+    <section class="social__media">
+      <div class="social__media-wrap">
+        <div class="footer__logo">
+          <a href="/" id="footer-logo">{% trans "KYD-FINANCE" %}</a>
+        </div>
+        <p class="website__rights">
+          {% trans "All rights reserved" %}  © {% trans "KYD-FINANCE" %} <span id="year"></span>
+        </p>
+        <div class="social__icons">
+          <a href="/" class="social__icon-link" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+          <a href="/" class="social__icon-link" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="/" class="social__icon-link" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+          <a href="/" class="social__icon-link" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-github"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+</footer>
+
+</main>
+
+</div>
+<script src="{% static 'main/app.js' %}"></script>{% static 'style.css' %}
+</body>
+
+</html>
