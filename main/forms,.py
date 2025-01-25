@@ -3,6 +3,7 @@ from django import forms
 from .models import Profile
 from django.contrib.auth.models import User
 from parler.forms import TranslatableModelForm
+from django.core.validators import MinLengthValidator, MaxLengthValidator
 
 
 # creating RegistrationForm
@@ -11,7 +12,8 @@ class RegistrationForm(forms.Form):
                                   label="Username ot Email",
                                   widget=forms.TextInput)
      password = forms.CharField(
-          max_length=8, label='Password', widget= forms.PasswordInput
+          max_length=8, label='Password', widget= forms.PasswordInput,
+          validators=[MinLengthValidator(4,'The password must be a minimum of 4 characters ')]
      )
      
      # A funstion to identify if  it's an emailor username
@@ -30,5 +32,18 @@ class RegistrationForm(forms.Form):
                     raise forms.ValidationError("A user with this username already exists.")
 
           return identifier
+     
+     # a function to clean the form
+
+     def clean(self):    
+        cleaned_data = super().clean()
+        identifier = cleaned_data.get("identifier")
+        password = cleaned_data.get("password")
+
+        if not identifier or not password:
+            raise forms.ValidationError("Both fields are required.")
+
+        return cleaned_data
+
 
      
