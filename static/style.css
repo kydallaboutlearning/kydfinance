@@ -89,7 +89,7 @@
 }
 
 /* Dropdown items styles */
-.languages__dropdown {
+.languages.dropdown {
   display: none; /* Hidden by default */
   position: fixed;
   top: 70px; /* Position the dropdown just below the menu item */
@@ -122,7 +122,7 @@
 }
 
 /* adding hover effect to the drop-down menu */
-.navbar__links.language:hover .languages__dropdown{
+.navbar__links.language:hover .languages.dropdown{
   display: block;
 }
 
@@ -293,6 +293,12 @@
     margin-top: 10px;
   }
 
+  /* styling for the sign in button */
+  .navbar__btn.mobile.log {
+    background: none;
+    margin: 1rem 24px;
+  }
+
   /* Adding hover effct to the navbar button */
   .navbar__btn.mobile:hover {
     background: #3c90f0;
@@ -304,9 +310,37 @@
   .navbar__links {
     padding: 0 0.5rem;
   }
-}
 
-@media screen and (max-width: 410px) {
+  /* styling for the dropdown button  */
+  .languages.dropdown {
+   display: none; /* Hidden by default */
+  position: fixed;
+  top: 48vh; /* Position the dropdown just below the menu item */
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 8rem;
+  z-index: 1000;
+  border-radius: 4px;
+  padding: 5px 0;
+  margin: 0;
+  transition: opacity 0.3s ease;
+  }
+}
+  
+@media screen and (min-height: 950px) {
+
+  .languages.dropdown{
+    top: 43vh;
+  }
+}
+  
+@media screen and (min-height: 885px) {
+
+  .languages.dropdown{
+    top: 40vh;
+  }
+}
+@media screen and (min-width: 410px) {
   .navbar__links {
     font-size: 1rem;
     padding: 0 0.1rem;
