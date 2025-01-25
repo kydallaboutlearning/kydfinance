@@ -70,19 +70,19 @@
             </div>
           </li>
           <li class="navbar__btn mobile log">
-            <a href="/signup.html" class="navbar__links ">{% trans "Sign In" %}</a>
+            <a href="{% 'accounts:register' %}" class="navbar__links ">{% trans "Sign In" %}</a>
           </li>
 
           <li class="navbar__btn mobile">
-            <a href="/signup.html" class="navbar__links">{% trans "Sign Up" %}</a>
+            <a href="{% 'accounts:register' %}" class="navbar__links">{% trans "Sign Up" %}</a>
           </li>
         </ul>
 
         <div class="navbar__btn desktop ">
-          <a href="/signup.html" class="button log">{% trans "Sign In" %}</a>
+          <a href="{% url 'accounts:register' %}" class="button log">{% trans "Sign In" %}</a>
         </div>
         <div class="navbar__btn desktop">
-          <a href="/signup.html" class="button">{% trans "Sign Up" %}</a>
+          <a href="{% 'accounts:register' %}" class="button">{% trans "Sign Up" %}</a>
         </div>
         <div class="navbar__toggle" id="mobile-menu">
           <div class="toggle"></div>
