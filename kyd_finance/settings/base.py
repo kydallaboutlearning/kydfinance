@@ -50,7 +50,8 @@ INSTALLED_APPS = [
 
     # THIRD PARTY APPS
     'rosetta',
-    'parler'
+    'parler',
+    'phonenumber_field'
 ]
 
 
@@ -165,3 +166,9 @@ PARLER_LANGUAGES = {
         'hide_untranslated': False,
     }
 }
+
+# aDDING MEDIA URL
+
+
+MEDIA_ROOT ='media/'
+MEDIA_URL = BASE_DIR/'media'
