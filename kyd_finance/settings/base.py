@@ -157,9 +157,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # setting up django parler for translating models
 PARLER_LANGUAGES = {
     None: (
-        {'code': 'en'},
-        {'code': 'fr'},
-        {'code': 'es'},
+        {'English': 'en'},
+        {'French': 'fr'},
+        {'Spanish': 'es'},
     ),
     'default': {
         'fallback': 'en',
