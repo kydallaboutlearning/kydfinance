@@ -55,11 +55,12 @@ class UseerAuthTest(TestCase):
           self.assertFalse(login_failed)
 
            #  Test login via POST request (valid credentials)
-          response = self.client.post(reverse('accounts:login'), {
+          response = self.client.post('/account/login/', {
             "username": self.username,
             "password": self.password
         })
 
+          self.assertRedirects(response, reverse('accounts:dashboard'), "Redirection to dashboard failed.")
 
         # Test POST request to the login view with incorrect credentials
           response = self.client.post(reverse('accounts:login'), {
