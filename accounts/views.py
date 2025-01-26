@@ -15,7 +15,7 @@ from django.contrib.auth.hashers import make_password
 @login_required
 def DashboardView(request):
     # Adding user profile
-    UserProfile = Profile.objects.get(User=request.user)
+    UserProfile = Profile.objects.get(user=request.user)
     
     return render(request,'main/dashboard.html', {'Userprofile': UserProfile})
 
