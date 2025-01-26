@@ -20,7 +20,7 @@ class Profile(TranslatableModel):
                          upload_to='users/%Y/%m/%d/',
                          blank=True
                          )
-     Age = models.DateField(
+     date_of_birth = models.DateField(
           blank=True, null=True
      )
      created = models.DateTimeField(auto_now_add = True)
