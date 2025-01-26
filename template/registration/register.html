@@ -1,0 +1,28 @@
+{% extends 'accounts_base.html' %}
+  {% load i18n %}
+{% block content %}
+
+{% block title %} | SignUp{% endblock %}
+<main>
+  <div class="header__container">
+      <!-- Placeholder for any additional content, if necessary -->
+  </div>
+
+  <div class="signup__container">
+      <div class="signup__card">
+          <div class="signup__content">
+
+              <div class="signup__header">
+                  <h1>{% trans "Create Your Account" %}</h1>
+                  <form action="{% url 'accounts:register' %}" method="post">
+                      {% csrf_token %}
+                      {{ form.as_p }}
+                      <button type="submit">{% trans 'Sign Up' %}</button>
+                  </form>
+                  <p class="signup__p">{% trans "Already have an account?" %} <a href="{% url 'accounts:login' %}">{% trans "Log In" %}</a></p>
+              </div>
+          </div>
+      </div>
+  </div>
+</main>
+{% endblock content %}
