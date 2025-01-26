@@ -1,0 +1,25 @@
+{% extends 'accounts_base.html' %}
+  {% load i18n %}
+{% block content %}
+<main>
+  <div class="header__container">
+      <!-- Placeholder for any additional content, if necessary -->
+  </div>
+
+  <div class="signup__container">
+      <div class="signup__card">
+          <div class="signup__content">
+
+              <div class="signup__header">
+                  <h1>{% trans "Logged Out" %}</h1>
+                  <p> 
+                    {% trans "You have been successfully logged out.
+                    You can" %} <a href="{% url 'accounts:login' %}">{% trans "log-in again" %}</a>.
+                    </p>
+
+              </div>
+          </div>
+      </div>
+  </div>
+</main>
+{% endblock content %}
