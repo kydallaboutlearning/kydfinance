@@ -15,7 +15,7 @@ from django.contrib.auth.hashers import make_password
 @login_required
 def DashboardView(request):
     # Adding user profile
-    UserProfile = Profile
+    UserProfile = Profile.objects.get(User=request.user)
     
     return render(request,'main/dashboard.html', {'Userprofile': UserProfile})
 
@@ -29,16 +29,11 @@ def register_view(request):
 
         # checking if form is valid
         if form.is_valid():
-            identifier = form.cleaned_data.get("identifier")
+            email = form.cleaned_data.get("email")
             password = form.cleaned_data.get("password")
+            username = form.cleaned_data.get('username')
 
-            # Check if it's an email or username
-            if "@" in identifier:  # Treat it as an email
-                email = identifier
-                username = email.split("@")[0]  # Generate a username from the email
-            else:  # Treat it as a username
-                username = identifier
-                email = None
+        
 
             # Create the user
             user = User.objects.create(
@@ -46,11 +41,11 @@ def register_view(request):
                 email=email,
                 password=make_password(password),
             )
-            return redirect("login")  # Redirect to login after registration
+            return redirect("accounts:login")  # Redirect to login after registration
     else:
         form = RegistrationForm()
 
-    return render(request, "register.html", {"form": form})
+    return render(request, "registration/register.html", {"form": form})
 
 
 
