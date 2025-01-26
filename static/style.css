@@ -1083,7 +1083,7 @@ display: none;
 
 
 
-/* error message styling */
+/* error message styling*/
 .signup__content form ul.errorlist{
   display: block;
   color: #721c24;  /* Dark red text color */
