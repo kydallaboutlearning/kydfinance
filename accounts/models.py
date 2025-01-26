@@ -1,7 +1,7 @@
 from django.db import models
 
 from django.contrib.auth import get_user_model
-from parler.models import TranslatableModel, TranslatedField
+from parler.models import TranslatableModel, TranslatedFields
 from phonenumber_field.modelfields import PhoneNumberField
 
 # Create your models here.
@@ -11,8 +11,8 @@ User = get_user_model()
 
 class Profile(TranslatableModel):
 
-     translations = TranslatedField(
-            Bio = models.TextField(blank=True),
+     translations = TranslatedFields(
+            bio = models.TextField(blank=True),
             financial_goal = models.TextField(blank=True)
      )
      user = models.OneToOneField(User, on_delete = models.CASCADE, related_name='Profile')
