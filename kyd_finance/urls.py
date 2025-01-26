@@ -35,7 +35,7 @@ urlpatterns = i18n_patterns(
     path('rosetta/', include('rosetta.urls')),
 
     # in apps
-    path(_('account/'), include('accounts.urls', namespace='accounts')),
+    path(_('account/'), include('accounts.urls')),
     # path('blog/', include('blog.urls', namespace='blog')),
     path('', include('main.urls', namespace='main')),
 )
