@@ -179,6 +179,9 @@ DEBUG = True
 
 # setting upthe url
 
-LOGIN_REDIRECT_URL = 'accounts:dashboard'
-LOGIN_URL = 'accounts:login'
-LOGOUT_URL = 'accounts:logout'
+LOGIN_REDIRECT_URL = 'dashboard'
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+
+# adding email backend
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

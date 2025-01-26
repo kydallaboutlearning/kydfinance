@@ -4,8 +4,6 @@ from .views import DashboardView, register_view, LogoutView
 
                     
 
-# URL patterns for the main app
-app_name = 'accounts'
 
 
 # setting up the URL patterns
