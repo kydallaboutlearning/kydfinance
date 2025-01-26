@@ -1,0 +1,274 @@
+<body>
+  <header>
+    <nav class="navbar" role="navigation" aria-label="Main-Navigation">
+      <div class="navbar__container">
+        <a href="/" class="navbar-logo"> KYD-FINANCE</a>
+
+        <ul class="navbar__menu">
+          <li class="navbar__item">
+            <a href="/" class="navbar__links">Home</a>
+          </li>
+          <li class="navbar__item">
+            <a href="/" class="navbar__links">Services</a>
+          </li>
+          <li class="navbar__item">
+            <a href="/" class="navbar__links">Pricing</a>
+          </li>
+          <li class="navbar__btn mobile">
+            <a href="/signup.html" class="navbar__links">Log-in/Sign Up</a>
+          </li>
+        </ul>
+        <div class="navbar__btn desktop">
+          <a href="/signup.html" class="button">Log-in/Sign Up</a>
+        </div>
+        <div class="navbar__toggle" id="mobile-menu">
+          <div class="toggle"></div>
+          <div class="toggle"></div>
+          <div class="toggle"></div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="hero__container">
+        <div class="hero__content">
+          <h1> Welcome to <br> KYD-FINANCES <br> THE BEST IN THE FINANCIAL MARKET TODAY</h1>
+          <p>Join us today to enjoy our topnotch services. <br>Here you have acces to pay bills all over the world with
+            little charges <br><br>
+            You would also have access to a free credit card worth $250. Exclusively for new users only. </p>
+          <button class="hero__button">Join Us Now</button>
+        </div>
+        <div class="hero__img">
+          <img id="hero-img" src="/images/svg1.svg" alt="">
+        </div>
+
+      </div>
+      <div class="rotating-logos__container">
+        <div class="rotating-logos__track">
+          <span class="rotating-logos__text">Seamless</span>
+          <span class="rotating-logos__text">Reliable</span>
+          <span class="rotating-logos__text">Efficient</span>
+          <span class="rotating-logos__text">Trustworthy</span>
+          <span class="rotating-logos__text">Innovative</span>
+          <span class="rotating-logos__text">UserFriendly</span>
+          <span class="rotating-logos__text">Convenient</span>
+          <span class="rotating-logos__text">Hassle free</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="why-choose-us">
+      <div class="why-choose-us__container">
+        <div class="intro-text">
+          <h1> Why choose us</h1>
+          <p>Whether you’re looking for a secure platform to manage your savings or a comprehensive tool for
+            investing.KYD-FINANCES has you covered. Here are a few reasons why you should choose us.</p>
+        </div>
+        <div class="features-grid">
+          <div class="feature">
+            <i class="fa-solid fa-lock icon"></i>
+            <h3>Secure</h3>
+            <p>Your privacy and security are our top priority. We use industry-leading encryption protocols and comply
+              with the strictest financial regulations to ensure your information is always safe.
+          </div>
+          <div class="feature">
+            <i class="fa-solid fa-lightbulb icon"></i>
+            <h3>Innovative</h3>
+            <p>We’re constantly updating our platform to provide you with the best tools and features.</p>
+          </div>
+          <div class="feature">
+            <i class="fa-solid fa-headset icon"></i>
+            <h3>24/7 Support</h3>
+            <p>Our team is available 24/7 to help you with any questions or issues you may have.</p>
+          </div>
+          <div class="feature">
+            <i class="fa-solid fa-money-bill icon"></i>
+            <h3>Affordable Pricing & Plans</h3>
+            <p>Get started today with our free plan, or choose from one of our affordable premium options that offer
+              even more advanced features and support.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pricing">
+      <h2 class="main-header">Choose the plan that fits you best</h2>
+      <div class="pricing-toggle">
+        <div class="toggle-container">
+          <span class="toggle-option">Monthly</span>
+          <label  class="switch">
+            <input type="checkbox" id="pricing-toggle-checkbox" onclick="SwitchPricing()">
+            <span class="slider"></span>
+          </label>
+          <span class="toggle-option">Yearly</span>
+        </div>
+          <div class="percentage-save__container">
+            <div class="percentage-saved">save 20%</div>
+          </div>
+      </div>
+
+      <!-- services -->
+      <div class="services-container">
+        <!-- Basic Plan -->
+        <div class="services-card">
+          <div class="services-content">
+            <h3>Basic Plan</h3>
+            <div class="price-card">
+            <p class="price monthly-price"> $10/month</p>
+            <p class="price yearly-price hidden"> $8/month</p>
+            <a href="/signup.html" class="service-button">Get Started</a>
+            <p class="basic desc">Everything you need to start</p>
+          </div>
+          </div>
+          <div class="card-features">
+            <h2 class="features">Features:</h2>
+            <ul class="feauture-list">
+              <span class="line"></span>
+              <li class="list">Free account with a $250 sign-up bonus.</li>
+              <span class="line"></span>
+              <li class="list">Cashback on utility bill payments.</li>
+              <span class="line"></span>
+
+            </ul>
+          </div>
+        </div>
+
+        <!-- Standard Plan -->
+        <div class="services-card">
+          <div class="services-content">
+            <h3>Standard Plan</h3>
+            <div class="price-card">
+            <p class="price monthly-price"> $30/month</p>
+            <p class="price yearly-price hidden"> $15/month</p>
+            <a href="/signup.html" class="service-button">Get Started</a>
+            <p class="standard desc">You just get more values</p>
+          </div>
+          </div>
+          <div class="card-features">
+            <h2 class="features">Features:</h2>
+            <ul class="feature-list">
+              <span class="line"></span>
+              <li class="list">You get Everything in Basic plan</li>
+              <span class="line"></span>
+              <li class="list">All on the Budget tools</li>
+              <span class="line"></span>
+
+            </ul>
+          </div>
+        </div>
+
+        <!-- Premium Plan -->
+        <div class="services-card">
+          <div class="services-content">
+            <h3>Premium Plan</h3>
+            <div class="price-card">
+            <p class="price monthly-price"> $80/month</p>
+            <p class="price yearly-price hidden"> $55/month</p>
+            <a href="/signup.html" class="service-button">Get Started</a>
+            <p class="premium desc">Perfect for business owners</p>
+          </div>
+          </div>
+          <div class="card-features">
+            <h2 class="features">Features:</h2>
+            <ul class="feauture-list">
+              <span class="line"></span>
+              <li class="list">Everything in Standard plan</li>
+              <span class="line"></span>
+
+              <li class="list">Unlimited transactions.</li>
+              <span class="line"></span>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- footer section -->
+     <footer>
+      <div class="footer__container">
+        <div class="newsletter__container">
+          <div class="newsletter__content">
+          <h1>Join our newsletter</h1>
+          <p>Subscribe to our newsletter to get the latest updates on our services and promotions.</p>
+          <form action="/submit" method="post">
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+        </div>
+        <div class="footer__links">
+          <div class="footer__links-wrapper">
+            <div class="footer__links-items">
+              <h2>About Us</h2>
+              <a href="/">How it works</a>
+              <a href="/">Testimonials</a>
+              <a href="/">Careers</a>
+              <a href="/">Investors</a>
+              <a href="/">Terms of Service</a>
+            </div>
+
+            <div class="footer__links-items">
+              <h2>Contact Us</h2>
+              <a href="/">Contact</a>
+              <a href="/">Support</a>
+              <a href="/">Destinations</a>
+              <a href="/">Sponsorships</a>
+            </div>
+          </div>
+     
+          <div class="footer__links-wrapper">
+            <div class="footer__links-items">
+              <h2>Videos</h2>
+              <a href="/">Submit Video</a>
+              <a href="/">Ambassadors</a>
+              <a href="/">Agency</a>
+              <a href="/">Influencer</a>
+            </div>
+      
+
+            <div class="footer__links-items">
+              <h2>Social Media</h2>
+              <a href="/" target="_blank" rel="noopener noreferrer">Facebook</a>
+              <a href="/">Instagram</a>
+              <a href="/">Linkedin</a>
+              <a href="/">Github</a>
+            </div>
+          </div>
+        </div>
+ 
+      <section class="social__media">
+        <div class="social__media-wrap">
+          <div class="footer__logo">
+            <a href="/" id="footer-logo">KYD-FINANCE</a>
+          </div>
+          <p class="website__rights">
+           All rights reserved  © KYD-FINANCE  <span id="year"></span>
+          </p>
+          <div class="social__icons">
+            <a href="/" class="social__icon-link" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="/" class="social__icon-link" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="/" class="social__icon-link" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a href="/" class="social__icon-link" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-github"></i>
+            </a>
+          </div>
+        </div>
+     </footer>
+
+    
+  </main>
+
+  </div>
+  <script src="app.js"></script>
+</body>
+
+</html>
