@@ -6,7 +6,7 @@ from parler.forms import TranslatableModelForm
 from django.core.validators import MinLengthValidator, MaxLengthValidator
 #importing gettext_lazy for translation
 from django.utils.translation import gettext_lazy as _
-
+from django.contrib.auth.forms import PasswordChangeForm as BasePasswordChangeForm
 
 # creating RegistrationForm
 class RegistrationForm(forms.Form):
@@ -54,4 +54,3 @@ class RegistrationForm(forms.Form):
         return cleaned_data
 
 
-     
