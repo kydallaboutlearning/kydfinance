@@ -1082,6 +1082,8 @@ display: none;
 }
 
 
+
+/* error message styling */
 .signup__content form ul.errorlist{
   display: block;
   color: #721c24;  /* Dark red text color */
@@ -1130,29 +1132,6 @@ display: none;
   cursor: pointer;
 }
 
-/* Error message styling */
-.error-messages {
-  background-color: #f8d7da;  /* Light red background */
-  border: 1px solid #f5c6cb;  /* Light red border */
-  padding: 15px;
-  margin-bottom: 20px;  /* Space between error and the rest of the form */
-  border-radius: 5px;
-}
-
-.error-messages p {
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.error-messages ul {
-  margin: 0;
-  padding-left: 20px;
-}
-
-.error-messages li {
-  color: #721c24;  /* Dark red text color */
-  margin-bottom: 5px;
-}
 
 /* responsive code for the form */
 @media screen and (max-width: 968px) {
