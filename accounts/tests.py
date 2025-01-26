@@ -1,6 +1,7 @@
 from django.test import TestCase
 from django.contrib.auth import get_user_model
 from django.shortcuts import reverse,redirect,render
+from .models import Profile
 # Create your tests here.
 
 class UseerAuthTest(TestCase):
@@ -35,6 +36,33 @@ class UseerAuthTest(TestCase):
            # Assert user exists in the database
           User = get_user_model()
           self.assertTrue(User.objects.filter(username='testuser').exists())
-     
+
+     def test_profile_created_on_user_creation(self):
+        # Verify that the Profile was created by the signal
+        profile_exists = Profile.objects.filter(user=self.user).exists()
+        self.assertTrue(profile_exists, "Profile was not created when user was created.")
+
 
      
+     def test_signin(self):
+
+          # testing login
+          login_successful = self.client.login(username='testuser', password='testpassword')
+          self.assertTrue(login_successful)
+
+          # login failed
+          login_failed = self.client.login(username='testuser', password='wrongpassword')
+          self.assertFalse(login_failed)
+
+           #  Test login via POST request (valid credentials)
+          response = self.client.post(reverse('accounts:login'), {
+            "username": self.username,
+            "password": self.password
+        })
+
+
+        # Test POST request to the login view with incorrect credentials
+          response = self.client.post(reverse('accounts:login'), {
+            "username": self.username,
+            "password": "wrongpassword"
+        })
