@@ -10,39 +10,45 @@ from django.utils.translation import gettext_lazy as _
 
 # creating RegistrationForm
 class RegistrationForm(forms.Form):
-     identifier = forms.CharField(max_length=200,
-                                  label="Username ot Email",
-                                  widget=forms.TextInput)
-     password = forms.CharField(
-          max_length=8, label='Password', widget= forms.PasswordInput,
-          validators=[MinLengthValidator(4,'The password must be a minimum of 4 characters ')]
+     email = forms.EmailField(max_length=200,widget=forms.EmailInput(attrs={
+                                  "label":_("Email"),
+                                  "required":True,
+                                  "type":"email",
+                                  "placeholder":_("Enter your Email")}))
+  
+     username = forms.CharField(max_length=200,
+                                 widget=forms.TextInput(attrs={
+                                  "label":_("Username"),
+                                  "required":True,
+                                  "type":"text",
+                                  "placeholder":_("Enter your Username")}))
+     
+     password = forms.CharField(label=_('Password'), widget= forms.PasswordInput(attrs={
+                                  "label":_("Username"),
+                                  "required":True,
+                                  "type":"password",
+                                  "placeholder":_("Enter your Password")}),
+          validators=[MinLengthValidator(4,_('The password must be a minimum of 4 characters '))]
      )
      
      # A funstion to identify if  it's an emailor username
-     def clean_identifier(self):
+     def clean_email(self):
           context = self.cleaned_data
-          identifier = context.get('identifier')
+          email = context.get('email')
 
-          # Check if the identifier is an email
-          if "@" in identifier:  # If it contains "@" assume it's an email
-               if not forms.EmailField().clean(identifier):
-                    raise forms.ValidationError(_("Invalid email address."))
-               if User.objects.filter(email=identifier).exists():
-                    raise forms.ValidationError(_("A user with this email already exists."))
-          else:  # Otherwise, treat it as a username
-               if User.objects.filter(username=identifier).exists():
-                    raise forms.ValidationError(_("A user with this username already exists."))
-
-          return identifier
+          if User.objects.filter(email=email).exists():
+               raise forms.ValidationError(_('Email already exists'))
+          return email
      
      # a function to clean the form
 
      def clean(self):    
         cleaned_data = super().clean()
-        identifier = cleaned_data.get("identifier")
+        email  = cleaned_data.get("email")
+        username  = cleaned_data.get("username")
         password = cleaned_data.get("password")
 
-        if not identifier or not password:
+        if not email or not password or not username:
             raise forms.ValidationError(_("Both fields are required."))
 
         return cleaned_data
