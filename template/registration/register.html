@@ -11,16 +11,14 @@
   <div class="signup__container">
       <div class="signup__card">
           <div class="signup__content">
-    
-
               <div class="signup__header">
                   <h1>{% trans "Create Your Account" %}</h1>
-                  <form action="{% url 'accounts:register' %}" method="post">
+                  <form action="{% url 'register' %}" method="post">
                       {% csrf_token %}
                       {{ form.as_p }}
                       <button type="submit">{% trans 'Create Account' %}</button>
                   </form>
-                  <p class="signup__p">{% trans "Already have an account?" %} <a href="{% url 'accounts:login' %}">{% trans "Log In" %}</a></p>
+                  <p class="signup__p">{% trans "Already have an account?" %} <a href="{% url 'login' %}">{% trans "Log In" %}</a></p>
               </div>
           </div>
       </div>
