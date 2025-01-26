@@ -28,14 +28,18 @@ from django.shortcuts import redirect
 
 # Add internationalized URL patterns
 urlpatterns = i18n_patterns(
+    # django apps
     path('admin/', admin.site.urls),
-    path(('rosetta/'), include('rosetta.urls')),
-    # path(_('account/'), include('accounts.urls',namespace='accounts')),
-    # path('blog/', include('blog.urls',namespace='blog')),
-    path('',include('main.urls',namespace='main')),
-    )
 
-if settings.DEBUG: 
-        urlpatterns += static (
-        settings.MEDIA_URL,
-        document_root = settings.MEDIA_ROOT)
+    # third party  apps
+    path('rosetta/', include('rosetta.urls')),
+
+    # in apps
+    path(_('account/'), include('accounts.urls', namespace='accounts')),
+    # path('blog/', include('blog.urls', namespace='blog')),
+    path('', include('main.urls', namespace='main')),
+)
+if settings.DEBUG:
+    urlpatterns += static(
+ settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
+ )
