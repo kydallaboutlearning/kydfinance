@@ -961,29 +961,25 @@ width: 50%;
   background: #141414;
 }
 
-
-.header__text{
+.header__text {
   padding: 10px;
 }
 
 .header__text h1 {
-color: #f8f8f8;
-font-size: 2.5rem;
-font-weight: bolder;
--webkit-text-stroke: 0.9px rgb(0, 0, 0); /* Outline width and color */
+  color: #f8f8f8;
+  font-size: 2.5rem;
+  font-weight: bolder;
+  -webkit-text-stroke: 0.9px rgb(0, 0, 0); /* Outline width and color */
 }
-
-
 
 @media screen and (max-width: 960px) {
   .header__text h1 {
     font-size: 2rem;
-    }
   }
+}
 
 /* sign up card styling */
-
-.navbar__container.sign-up{
+.navbar__container.sign-up {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1015,8 +1011,7 @@ font-weight: bolder;
   font-weight: bolder;
 }
 
-
-.signup__card{
+.signup__card {
   display: flex;
   position: fixed;
   top: 100px;
@@ -1027,32 +1022,32 @@ font-weight: bolder;
   max-width: 550px;
   justify-content: center;
   border-radius: 20px;
-  box-shadow: 0 0 10px rgba(68, 68, 180,0.5);
-};
+  box-shadow: 0 0 10px rgba(68, 68, 180, 0.5);
+}
 
-
-.signup__content{
+.signup__content {
   flex-grow: 1;
   margin: 0 10px;
   justify-content: center;
   padding: 10px;
   flex-direction: column;
-  /* width: 80%; */
 }
 
-.signup__header{
+.signup__header {
   margin-bottom: 1.5rem;
-}
 
+}
 
 .signup__header h1 {
   font-size: 2rem;
   color: #fff;
   margin-top: 1.5rem;
+  top: 0%;
+  text-align: center;
+
 }
 
-
-/* form styling  */
+/* form styling */
 .signup__content form {
   display: flex;
   flex-direction: column;
@@ -1063,6 +1058,21 @@ font-weight: bolder;
   gap: 1.5rem;
 }
 
+
+.signup__content form p{
+  width: 100%;
+  padding: 0.5rem 0;
+  margin: 10px 0;
+  border-radius: 10px;
+  font-size: 1rem;
+  background-color: #000;
+  color: #fff;
+}
+
+
+.signup__content.signup__p{
+  text-align: center;
+}
 .signup__content form input {
   width: 100%;
   padding: 0.5rem 1rem;
@@ -1092,30 +1102,52 @@ font-weight: bolder;
   cursor: pointer;
 }
 
-/* responsive cude for the form */
+/* Error message styling */
+.error-messages {
+  background-color: #f8d7da;  /* Light red background */
+  border: 1px solid #f5c6cb;  /* Light red border */
+  padding: 15px;
+  margin-bottom: 20px;  /* Space between error and the rest of the form */
+  border-radius: 5px;
+}
 
+.error-messages p {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.error-messages ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.error-messages li {
+  color: #721c24;  /* Dark red text color */
+  margin-bottom: 5px;
+}
+
+/* responsive code for the form */
 @media screen and (max-width: 968px) {
   .signup__card {
     max-width: 80vw;
-    height:60%;
+    height: 100%;
   }
 
-  .signup__logo{
+  .signup__logo {
     font-size: 1.5rem;
   }
 
   .signup__container button {
     padding: 5px 30px;
-    }
-
+  }
 }
 
 @media screen and (max-width: 410px) {
   .signup__card {
     max-width: 80vw;
-    height:60%;
+    height: 60%;
   }
-  .signup__header h1{
+  .signup__header h1 {
     font-size: 1.3rem;
     margin-left: 17px;
     margin-right: 17px;
@@ -1125,6 +1157,7 @@ font-weight: bolder;
     margin: 10px 0;
   }
 }
+
 
 
 /* Newsletter Form */
