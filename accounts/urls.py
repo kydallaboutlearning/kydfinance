@@ -9,9 +9,9 @@ app_name = 'accounts'
 
 
 # setting up the URL patterns
-urlpattern = [
-     path(_('Accounts/'), include('django.contrib.auth.urls'),
-     path( _('DashBoard/'), DashboardView, name = 'dashboard')),
-     path(_('register/'), register_view, name = 'register'),
-     ]
+urlpatterns = [
+    path('', include('django.contrib.auth.urls')),  
+    path(_('DashBoard/'), DashboardView, name='dashboard'),  
+    path(_('register/'), register_view, name='register'),
+]
      
