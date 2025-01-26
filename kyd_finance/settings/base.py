@@ -125,9 +125,9 @@ USE_L10N = True
 
 # adding the language code
 LANGUAGES = [
-    ('en', _('English')),
-    ('fr', _('French')),
+     ('en', _('English')),
     ('es', _('Spanish')),
+    ('fr', _('French')),
 ]
 
 # adding locale path
@@ -156,19 +156,29 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # setting up django parler for translating models
 PARLER_LANGUAGES = {
-    None: (
-        {'English': 'en'},
-        {'French': 'fr'},
-        {'Spanish': 'es'},
+    None:(
+        {'code' : 'en'},
+        {'code' : 'es'},
+        {'code': 'fr'},
     ),
     'default': {
-        'fallback': 'en',
+        'fallbacks': ['en'],
         'hide_untranslated': False,
-    }
-}
+        },
+        }
 
 # aDDING MEDIA URL
 
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR/'media'
 
-MEDIA_ROOT ='media/'
-MEDIA_URL = BASE_DIR/'media'
+
+DEBUG = True
+
+
+
+# setting upthe url
+
+LOGIN_REDIRECT_URL = 'accounts:dashboard'
+LOGIN_URL = 'accounts:login'
+LOGOUT_URL = 'accounts:logout'
