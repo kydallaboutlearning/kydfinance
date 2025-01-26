@@ -1,6 +1,8 @@
 {% extends 'accounts_base.html' %}
   {% load i18n %}
 {% block content %}
+
+{% block title %} | Sign In{% endblock %}
 <main>
   <div class="header__container">
       <!-- Placeholder for any additional content, if necessary -->
@@ -15,14 +17,16 @@
               
                   <h1>{% trans "Login to Your Account" %} </h1>
                 </div>
-                  <form action="{% url 'accounts:login' %}" method="post">
+                  <form action="{% url 'login' %}" method="post">
                       {% csrf_token %}
                       {{ form.as_p }}
                       <input type="hidden" name="next" value="{{ next }}" />
 
                       <button type="submit" value="log-in-">{% trans 'Sign In' %}</button>
                   </form>
-                  <p  class="signup__p">{% trans "New here?" %} <a href="{% url 'accounts:register' %}">{% trans "Create your account" %}</a></p>
+                  <p  class="signup__p">{% trans "New here?" %} <a href="{% url 'register' %}">{% trans "Create your account" %}</a></p>
+                  <p  class="signup__p">{% trans "Forgot your password?" %} <a href="{% url 'password_reset' %}">{% trans "Create your account" %}</a></p>
+
               </div>
           </div>
       </div>
