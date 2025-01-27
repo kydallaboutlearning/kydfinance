@@ -18,7 +18,10 @@
                       {{ form.as_p }}
                       <button type="submit">{% trans 'Create Account' %}</button>
                   </form>
-                  <p class="signup__p">{% trans "Already have an account?" %} <a href="{% url 'login' %}">{% trans "Log In" %}</a></p>
+                  <div class="signup__option">
+                    <p class="signup__p">{% trans "Already have an account?" %} <a href="{% url 'login' %}">{% trans "Log In" %}</a></p>
+                    <p  class="signup__p 2">{% trans "Forgot your password?" %} <a href="{% url 'password_reset' %}">{% trans "Reset it" %}</a></p>
+                  </div>                
               </div>
           </div>
       </div>
