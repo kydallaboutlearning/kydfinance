@@ -1,6 +1,7 @@
 {% extends 'accounts_base.html' %}
   {% load i18n %}
 {% block content %}
+{% load static %}
 
 {% block title %} | Sign In{% endblock %}
 <main>
@@ -24,9 +25,20 @@
 
                       <button type="submit" value="log-in-">{% trans 'Sign In' %}</button>
                   </form>
+                  <div class="signup__options-container">
                   <div class="signup__option">
                   <p  class="signup__p 1">{% trans "New here?" %} <a href="{% url 'register' %}">{% trans "Create your account" %}</a></p>
                   <p  class="signup__p 2">{% trans "Forgot your password?" %} <a href="{% url 'password_reset' %}">{% trans "Reset it" %}</a></p>
+                </div>
+                <div class="social__text">
+                  Or SignUp Via
+              </div>
+                  <div class="social__login">
+                      <a href="{% url 'social:begin' 'google-oauth2' %}" class="social__icon-link sign-up">
+        <img  src="{% static 'main/images/google.svg' %}" alt="{% trans "Hero Image" %}">
+                      </p>
+                        </a>
+                  </div>
                 </div>
               </div>
           </div>
