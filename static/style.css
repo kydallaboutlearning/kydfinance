@@ -1023,8 +1023,34 @@ width: 50%;
   max-width: 550px;
   justify-content: center;
   border-radius: 20px;
-  box-shadow: 0 0 10px rgba(68, 68, 180, 0.5);
+  box-shadow: 0 0 5px #fff;
+   /* Enable scrolling */
+   overflow-y: auto; /* Scroll vertically if content exceeds height */
+   overflow-x: auto; /* Prevent horizontal scrolling */
 }
+
+
+
+/* Apply to the entire document */
+.signup__card::-webkit-scrollbar {
+  width: 5px; /* Width of the scrollbar */
+  height: 8px; /* Height of the scrollbar (for horizontal scrollbars) */
+}
+
+.signup__card::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Light gray background for the track */
+  border-radius: 10px; /* Rounded corners for the track */
+}
+
+.signup__card::-webkit-scrollbar-thumb {
+  background: #888; /* Gray color for the scrollbar handle */
+  border-radius: 10px; /* Rounded corners for the handle */
+}
+
+.signup__card::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Darker gray when hovered */
+}
+
 
 /*  */
 
@@ -1100,8 +1126,17 @@ display: none;
     position: absolute;
     }
 
-.signup__content.signup__p{
+  .signup__option{
+    display: flex;
+    justify-content: center;
+  }
+
+p.signup__p{
   text-align: center;
+  align-items: center;
+  font-size: 12px;
+  padding: 5px;
+
 }
 .signup__content form input {
   width: 100%;
