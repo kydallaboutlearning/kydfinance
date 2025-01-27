@@ -12,8 +12,12 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 from django.utils.translation import gettext_lazy as _
+import environ
 
+env = environ.Env()
 
+# Take environment variables from a `.env` file
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -23,7 +27,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-7p1-hhz(3u$-lpos#42elg=q1b3&fyem3sq5)$tpp$-ncj214n'
+SECRET_KEY =  'django-insecure-_wo1g)d47mo=$@#o=4%hh*!1v=neh1ukl$=)s4uh6lsvp!3=rn'
+
 
 
 
@@ -184,4 +189,11 @@ LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 
 # adding email backend
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# Email Configuration
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'kydallaboutlearning@gmail.com'
+EMAIL_HOST_PASSWORD = 'svzg ebnh geaa jmxi'
