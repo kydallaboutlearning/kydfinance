@@ -68,7 +68,7 @@
         </ul>
 
         <div class="navbar__btn desktop ">
-          <a href="{% url 'password_reset' %}" class="button log">{% trans "Sign In" %}</a>
+          <a href="{% url 'social:begin' 'google-oauth2' %}" class="button log">{% trans "Sign In" %}</a>
         </div>
         <div class="navbar__btn desktop">
           <a href="{% url 'register' %}" class="button">{% trans "Sign Up" %}</a>
@@ -167,7 +167,7 @@
 </main>
 
 </div>
-<script src="{% static 'main/app.js' %}"></script>{% static 'style.css' %}
+<script src="{% static 'main/app.js' %}"></script>
 </body>
 
 </html>
