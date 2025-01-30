@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     # Django apps generated
     'accounts.apps.AccountsConfig',
     'main.apps.MainConfig',
+    'blog.apps.BlogConfig',
 
 
     # THIRD PARTY APPS
@@ -224,3 +225,4 @@ SOCIAL_AUTH_PIPELINE = [
  'social_core.pipeline.social_auth.load_extra_data',
  'social_core.pipeline.user.user_details',
 ]
+
