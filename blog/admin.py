@@ -11,6 +11,11 @@ class BlogAdmin(TranslatableAdmin):
     date_hierarchy = 'publish'
     ordering = ['status', 'publish']
     
+    def get_prepopulated_fields(self, request, obj=None):
+        return {'slug': ('get_title',)}
+
+    
+    
     def get_title(self, obj):
         return obj.safe_translation_getter('title', default='[No Title]')  #  Fallback for missing translations
     
