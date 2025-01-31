@@ -46,3 +46,8 @@ if settings.DEBUG:
     urlpatterns += static(
  settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
  )
+
+#customizing the admin site
+admin.site.site_header = "KYD-FINANCE Admin Portal"
+admin.site.site_header = 'KYD-FINANCE'
+admin.site.site_title = 'KYD-FINANCE'
