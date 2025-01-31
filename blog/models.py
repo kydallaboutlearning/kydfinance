@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from parler.models import TranslatableModel, TranslatedFields
 from parler.managers import TranslatableManager  # Import Parler's Manager
+from django.contrib.auth import get_user_model
 
 # Creating a model manager that supports translations
 class PublishedManager(TranslatableManager):  # FIXED: Inherit from TranslatableManager
@@ -10,15 +11,23 @@ class PublishedManager(TranslatableManager):  # FIXED: Inherit from Translatable
 
 # Creating BlogPost model
 class BlogPost(TranslatableModel):
+    user = get_user_model()
     class Status(models.TextChoices):
         DRAFT = 'DF', 'Draft'
         PUBLISHED = 'PB', 'Published'
 
     # Fields that are not translatable
+    author = models.ForeignKey(
+                                user,
+                                on_delete = models.CASCADE,
+                                related_name = 'blog_posts'
+                               ) 
     slug = models.SlugField(max_length=250, unique=True)
     publish = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+    image = models.ImageField(upload_to = 'blogs/%Y/%m/%d', 
+                              blank = True,null = True)
     status = models.CharField(
         max_length=2,
         choices=Status.choices,  # FIXED: Added .choices
