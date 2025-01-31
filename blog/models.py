@@ -1,14 +1,14 @@
 from django.db import models
 from django.utils import timezone
 from parler.models import TranslatableModel, TranslatedFields
+from parler.managers import TranslatableManager  # Import Parler's Manager
 
-
-# Creating a model manager
-class PublishedManager(models.Manager):
+# Creating a model manager that supports translations
+class PublishedManager(TranslatableManager):  # FIXED: Inherit from TranslatableManager
     def get_queryset(self):
-        return super().get_queryset().filter(status=BlogPost.Status.PUBLISHED)  # FIXED: Use BlogPost.Status
+        return super().get_queryset().filter(status=BlogPost.Status.PUBLISHED)
 
-# Creating models
+# Creating BlogPost model
 class BlogPost(TranslatableModel):
     class Status(models.TextChoices):
         DRAFT = 'DF', 'Draft'
@@ -32,7 +32,7 @@ class BlogPost(TranslatableModel):
     )
     
     # Registering model managers
-    objects = models.Manager()  # Default manager
+    objects = TranslatableManager()  # Default manager for Parler
     published = PublishedManager()  # Custom manager for published posts
 
     class Meta:
@@ -42,8 +42,4 @@ class BlogPost(TranslatableModel):
         ]
 
     def __str__(self):
-        return self.safe_title()  # FIXED: To avoid errors in Django Admin
-
-    def safe_title(self):
-        """Returns title for display, even if translation is missing."""
-        return self.safe_translation_getter('title', default='[No Title]')
+        return self.safe_translation_getter('title', default='[No Title]')  # FIXED: Safe fallback for missing translations
