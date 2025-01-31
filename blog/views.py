@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import BlogPost
+from django.views.generic import ListView, DetailView
 
 # Create your views here.
 
@@ -10,4 +11,5 @@ def post_list_by(request):
         'main/home.html',
         {'posts':posts}
     )
+    
     
