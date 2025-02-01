@@ -1322,3 +1322,25 @@ p.signup__p{
 .social__text{
   margin: 10px;
 }
+
+/* styling fro the blog  */
+.blog {
+  text-align: center;
+  background-color: rgb(68, 68, 180);
+  padding: 35px 20px;
+}
+
+.blog h1 {
+  font-size: 3rem;
+  color: #fff;
+  padding: 40px;
+}
+
+.blog__container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+
