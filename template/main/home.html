@@ -182,6 +182,37 @@
    </div>
    </div>
    </section>
+   <section class="blog">
+  
+  
+    <div class="blog__container">
+      <intro-text>
+        <h1>
+          {% trans "BlOG" %}
+        </h1>
+        <p>
+          {% blocktrans %}
+        </p>
+      </intro-text>
+      {% for post in posts %}
+      <div class="blog__card">
+        <div class="blog__image-container"></div>
+        <h1 class="blog__title">
+          {{post.title}}
+        </h1>
+        <p class="blog__body">
+          {{ post.body|truncatewords:30|linebreaks}}
+        </p>
+        <div class="blog__author">
+          by: {{post.author}}
+        </div>
+        <div class="blog_date">
+          {{post.created}}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+   </section>
    
   </main>
 
