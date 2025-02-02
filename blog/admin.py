@@ -5,11 +5,12 @@ from .models import BlogPost
 # Register your models here.
 @admin.register(BlogPost)
 class BlogAdmin(TranslatableAdmin):
-    list_display = ['get_title', 'status', 'publish', 'created'] # Use get_title instead of 'safe_title'
-    list_editable = ['status']
+    list_display = ['get_title', 'author','status', 'publish', 'created','updated'] # Use get_title instead of 'safe_title'
+    list_editable = ['status','author']
     search_fields = ['translations__title', 'status', 'publish']  #Use translations__title for search
     date_hierarchy = 'publish'
     ordering = ['status', 'publish']
+    show_facets = admin.ShowFacets.ALWAYS
     
     def get_prepopulated_fields(self, request, obj=None):
         return {'slug': ('get_title',)}
