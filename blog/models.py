@@ -18,6 +18,11 @@ class BlogPost(TranslatableModel):
         PUBLISHED = 'PB', 'Published'
 
     # Fields that are not translatable
+        # Translatable fields
+    translations = TranslatedFields(
+        title=models.CharField(max_length=250),
+        body=models.TextField(),
+    )
     author = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
@@ -36,11 +41,7 @@ class BlogPost(TranslatableModel):
         default=Status.DRAFT
     )
 
-    # Translatable fields
-    translations = TranslatedFields(
-        title=models.CharField(max_length=250),
-        body=models.TextField(),
-    )
+
 
     # Registering model managers
     objects = TranslatableManager()  # Default manager
@@ -58,3 +59,8 @@ class BlogPost(TranslatableModel):
     def __str__(self):
         return self.safe_translation_getter("title", default="[No Title]")
     
+    def get_translated_title(self):
+        return self.safe_translation_getter("title", default="[No Title]")
+
+    def get_translated_body(self):
+        return self.safe_translation_getter("body", default="[No Body]")
