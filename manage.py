@@ -6,14 +6,8 @@ import sys
 
 def main():
     """Run administrative tasks."""
-    dev_mode = input('what development mode are you on?: dev or prod: ')
-    if dev_mode == 'dev':
-        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'kyd_finance.settings.dev')
-    elif dev_mode == 'prod':
-        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'kyd_finance.settings.prod')
 
-    else:
-        print('Choose a development mode')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'kyd_finance.settings.dev')
 
     try:
         from django.core.management import execute_from_command_line
