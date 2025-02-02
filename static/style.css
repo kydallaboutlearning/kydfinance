@@ -61,7 +61,7 @@
 
 .navbar__links.language {
   
-  padding: 0 1.5rem;
+  padding: 0 1rem;
 
 }
 
@@ -108,6 +108,10 @@
   padding: 8px 16px;
   margin: 0;
 }
+.language__list.feature_{
+  padding: 1rem;
+  margin: 0;
+}
 
 .language__link {
   text-decoration: none;
@@ -125,6 +129,11 @@
 /* adding hover effect to the drop-down menu */
 .navbar__links.language:hover .languages.dropdown{
   display: block;
+}
+.navbar__links.language:hover .languages.dropdown.feature_{
+  display: block;
+  justify-content: center;
+  align-items: center;
 }
 
 /* added the hover effect */
@@ -1433,4 +1442,15 @@ display: flex;
 }
 
 @media screen and (max-width: 968px) {
+}
+
+
+.feature_{
+ 
+  padding: 5px;
+
+  align-items: start;
+  text-align: justify;
+  justify-content: center;
+
 }
