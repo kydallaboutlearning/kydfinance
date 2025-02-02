@@ -182,41 +182,50 @@
    </div>
    </div>
    </section>
-   <section class="blog">
-  
-  
-    <div class="blog__container">
-      <div class="intro-text">
-        <h1>
-          {% trans "BLOG" %}
-        </h1>
-        <p>
-          {% trans "Enjoy Our Blogs on all relevant topics" %}
-        </p>
-      </div>
+<section class="blog">
+  <div class="blog__container">
+    <div class="intro-text">
+      <h1>{% trans "BLOG" %}</h1>
+      <p>{% trans "Enjoy Our Blogs on all relevant topics" %}</p>
+    </div>
+
+    <div class="blog__body-container">
       {% for post in posts %}
       <div class="blog__card">
         <div class="blog__image-container">
-          <a href="">
-            <img src="{% if post.image %}{{ post.image.url }}{% else %}{% static "main/images/no_img.avif" %}{% endif %}" alt="">
+          <a href="#">
+            <img
+              src="{% if post.image %}{{ post.image.url }}{% else %}{% static 'main/images/no_img.avif' %}{% endif %}"
+              alt="">
           </a>
         </div>
+
         <div class="blog__header">
-          <h1>
-          {{post.title}}
-        </h1>
-      </div>
+          <h1>{{ post.get_translated_title }}</h1>
+        </div>
+
         <div class="blog__body">
-          {{ post.body|truncatewords:30|linebreaks}}....</div>
-        <div class="blog__button"><a href="">Read More</a> </div>
+          {{ post.get_translated_body|truncatewords:10 }}...
+        </div>
+
+        <div class="blog__button">
+          <a href="#">{% trans "Read More" %}</a>
+        </div>
+
         <div class="blog__note">
-          <div class="blog__author"> Author: {{post.author}}</div>
-           <div class="blog_date">Date: {{post.created}}</div>
+          <div class="blog__author">
+            {% trans "Author:" %} {{ post.author }}
+          </div>
+          <div class="blog__date">
+            {% trans "Date:" %} {{ post.created|date:"l, F jS, Y" }}
+          </div>
         </div>
       </div>
+      {% endfor %}
     </div>
-    {% endfor %}
-   </section>
+  </div>
+</section>
+
    
   </main>
 
