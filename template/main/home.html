@@ -5,7 +5,7 @@
 {% load i18n %}
 {% load static i18n %}
 
-{% block title %} -HOME {% endblock title %}
+{% block title %} | HOME {% endblock title %}
   {% block content %} 
 
   <main>
@@ -188,7 +188,7 @@
     <div class="blog__container">
       <div class="intro-text">
         <h1>
-          {% trans "BlOG" %}
+          {% trans "BLOG" %}
         </h1>
         <p>
           {% trans "Enjoy Our Blogs on all relevant topics" %}
@@ -201,17 +201,17 @@
             <img src="{% if post.image %}{{ post.image.url }}{% else %}{% static "main/images/no_img.avif" %}{% endif %}" alt="">
           </a>
         </div>
-        <h1 class="blog__title">
+        <div class="blog__header">
+          <h1>
           {{post.title}}
         </h1>
-        <p class="blog__body">
-          {{ post.body|truncatewords:30|linebreaks}}
-        </p>
-        <div class="blog__author">
-          by: {{post.author}}
-        </div>
-        <div class="blog_date">
-          {{post.created}}
+      </div>
+        <div class="blog__body">
+          {{ post.body|truncatewords:30|linebreaks}}....</div>
+        <div class="blog__button"><a href="">Read More</a> </div>
+        <div class="blog__note">
+          <div class="blog__author"> Author: {{post.author}}</div>
+           <div class="blog_date">Date: {{post.created}}</div>
         </div>
       </div>
     </div>
