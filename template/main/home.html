@@ -186,17 +186,21 @@
   
   
     <div class="blog__container">
-      <intro-text>
+      <div class="intro-text">
         <h1>
           {% trans "BlOG" %}
         </h1>
         <p>
-          {% blocktrans %}
+          {% trans "Enjoy Our Blogs on all relevant topics" %}
         </p>
-      </intro-text>
+      </div>
       {% for post in posts %}
       <div class="blog__card">
-        <div class="blog__image-container"></div>
+        <div class="blog__image-container">
+          <a href="">
+            <img src="{% if post.image %}{{ post.image.url }}{% else %}{% static "main/images/no_img.avif" %}{% endif %}" alt="">
+          </a>
+        </div>
         <h1 class="blog__title">
           {{post.title}}
         </h1>
