@@ -24,40 +24,55 @@
     <nav class="navbar" role="navigation" aria-label="{% trans 'Main Navigation' %}">
       <div class="navbar__container">
         <a href="/" class="navbar-logo"> {% trans "KYD-FINANCE" %} </a>
-        .navbar__menu
-        <ul class="navbar__menu">
-          <li class="navbar__item">
-            <a href="/" class="navbar__links">{% trans "Home" %}</a>
-          </li>
-          <li class="navbar__item">
-            <div class="navbar__links services">{% trans "Features" %}
-          
-            </div>
-          </li>
-          <li class="navbar__item">
-            <a href="/" class="navbar__links">{% trans "Pricing" %}</a>
-          </li>
+       <ul class="navbar__menu">
+  <li class="navbar__item">
+    <a href="/" class="navbar__links">{% trans "Home" %}</a>
+  </li>
 
-          <li class="navbar__item dn">
-            <div class="navbar__links language">
-              <p>
-                Language: {% if LANGUAGE_CODE %}
-                  {{ LANGUAGE_CODE }}
-                {% endif %}
-                <i class="fa-solid fa-caret-down"></i>
-              </p>
-              
-                <ul class="languages dropdown">
-                    {% for language in languages %}
-                      <li class="language__list">
-                        <a class="language__link" href="/{{ language.code }}/">
-                          {{ language.name_local }}
-                        </a>
-                      </li>
-                    {% endfor %}
-              </ul>
-            </div>
+  <li class="navbar__item dn">
+    <div class="navbar__links language">
+      <p>
+        {% trans "Features" %}<i class="fa-solid fa-caret-down"></i>
+      </p>
+
+      <ul class="languages dropdown">
+        <li class="language__list feature_">
+          <a href="/services" class="language__link feature_">{% trans "Services" %}</a>
+        </li>
+        <li class="languages__list feature_">
+          <a href="/contact" class="language__link feature_">{% trans "Contact Us" %}</a>
+        </li>
+        <li class="languages__list feature_">
+          <a href="/blog" class="language__link feature_">{% trans "Blog" %}</a>
+        </li>
+      </ul>
+    </div>
+  </li>
+
+  <li class="navbar__item">
+    <a href="/" class="navbar__links">{% trans "Pricing" %}</a>
+  </li>
+
+  <li class="navbar__item dn">
+    <div class="navbar__links language">
+      <p>
+        Language: {% if LANGUAGE_CODE %}
+          {{ LANGUAGE_CODE }}
+        {% endif %}
+        <i class="fa-solid fa-caret-down"></i>
+      </p>
+
+      <ul class="languages dropdown">
+        {% for language in languages %}
+          <li class="language__list">
+            <a class="language__link" href="/{{ language.code }}/">
+              {{ language.name_local }}
+            </a>
           </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </li>
           <li class="navbar__btn mobile log">
             <a href="{% url 'register' %}" class="navbar__links ">{% trans "Sign In" %}</a>
           </li>
