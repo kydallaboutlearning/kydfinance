@@ -1326,8 +1326,9 @@ p.signup__p{
 /* styling fro the blog  */
 .blog {
   text-align: center;
-  background-color: rgb(68, 68, 180);
+  background-color: #131313;
   padding: 35px 20px;
+  border-top: #3a3838b4b solid 1px;
 }
 
 .blog h1 {
@@ -1344,3 +1345,23 @@ p.signup__p{
   margin: 0 auto;
 }
 
+.blog__card{
+  display: flex;
+  flex-direction: column;
+  width: 25rem;
+  height: 25rem;
+  border: #fff solid 1px;
+  border-radius: 10px;
+  margin: 2px;
+  overflow-x: hidden;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  gap: 5px;
+
+}
+
+
+
+.blog__image-container{
+}
