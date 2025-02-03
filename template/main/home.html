@@ -193,7 +193,7 @@
       {% for post in posts %}
       <div class="blog__card">
         <div class="blog__image-container">
-          <a href="#">
+          <a href="{{ post.get_absolute_url }}">
             <img
               src="{% if post.image %}{{ post.image.url }}{% else %}{% static 'main/images/no_img.avif' %}{% endif %}"
               alt="">
@@ -209,7 +209,7 @@
         </div>
 
         <div class="blog__button">
-          <a href="#">{% trans "Read More" %}</a>
+          <a href="{{ post.get_absolute_url }}">{% trans "Read More" %}</a>
         </div>
 
         <div class="blog__note">
