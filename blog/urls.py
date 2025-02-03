@@ -10,7 +10,12 @@ app_name = 'blog'
 
 # setting up the URL patterns
 urlpattern = [
-     '', post_list_norms, name ='post_list',
-     'post_class/', Post_list.as_view(), name = 'post_list_class',
+     path('', post_list_norms, name ='post_list'),
+     path('post_class/', Post_list.as_view(), name = 'post_list_class'),
+     path(
+        '<int:year>/<int:month>/<int:day>/<slug:post>/',
+        views.post_detail,
+        name='post_detail',
+          ),
      
      ]
