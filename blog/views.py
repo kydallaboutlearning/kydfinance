@@ -8,8 +8,8 @@ from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
 def post_list_norms(request):
     post_list = BlogPost.published.all()
-    # Pagination with 4 posts per page
-    paginator = Paginator(post_list, 4)
+    # Pagination with 10 posts per page
+    paginator = Paginator(post_list, 10)
     page_number = request.GET.get('page', 1)
     try:
         posts = paginator.page(page_number)
@@ -19,18 +19,13 @@ def post_list_norms(request):
     except EmptyPage:
         # If page_number is out of range get last page of results
         posts = paginator.page(paginator.num_pages)
-    return render(
-        request,
-        'blog/post/list.html',
-        {'posts': posts}
-    )
+    return render(request,
+                     'blog/post/list.html', 
+                     {'posts': posts, 'page_obj': posts}
+                     )
 
         
-    return render(
-        request,
-        'blog/post/list.html',
-        {'posts': posts}
-    )
+   
 
     
 
@@ -47,11 +42,14 @@ def Post_Detail(request,year,month,day,post):
     # get the post based on the requested data in frm of year, day,
     post = get_object_or_404(
         BlogPost,
-        status=Post.Status.PUBLISHED,
+        status=BlogPost.Status.PUBLISHED,
         slug=post,
         publish__year=year,
         publish__month=month,
         publish__day=day,
-    )
+    ) 
+    
+    return render(request, 'blog/post/detail.html', {'post': post})
+
     
     
