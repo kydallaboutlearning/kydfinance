@@ -37,11 +37,11 @@ urlpatterns = i18n_patterns(
     # in apps
     path(_('account/'), include('accounts.urls')),
     # path('blog/', include('blog.urls', namespace='blog')),
-    path(_('social-auth/'),
- include('social_django.urls', namespace='social')
- ),
+    path(_('social-auth/'), include('social_django.urls', namespace='social') ),
+    path(_('blog/'), include('blog.urls',namespace='blog')),
     path('', include('main.urls', namespace='main')),
 )
+    
 if settings.DEBUG:
     urlpatterns += static(
  settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
