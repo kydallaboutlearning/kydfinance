@@ -2,12 +2,29 @@
 from django.shortcuts import render, get_object_or_404
 from .models import BlogPost
 from django.views.generic import ListView
-from django.core.paginator import 
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
 # Create your views here.
 
 def post_list_norms(request):
-    posts = BlogPost.published.all()
+    post_list = BlogPost.published.all()
+    # Pagination with 4 posts per page
+    paginator = Paginator(post_list, 4)
+    page_number = request.GET.get('page', 1)
+    try:
+        posts = paginator.page(page_number)
+    except PageNotAnInteger:
+        # If page_number is not an integer get the first page
+        posts = paginator.page(1)
+    except EmptyPage:
+        # If page_number is out of range get last page of results
+        posts = paginator.page(paginator.num_pages)
+    return render(
+        request,
+        'blog/post/list.html',
+        {'posts': posts}
+    )
+
         
     return render(
         request,
