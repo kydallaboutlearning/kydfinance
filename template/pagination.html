@@ -1,13 +1,36 @@
+
+{% load i18n %}
+{% load static i18n %}
+
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+{% get_language_info_list for LANGUAGES as languages %}
+
+<!DOCTYPE html>
+<html lang="{{current_language}}">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+  <script src="https://kit.fontawesome.com/6012a26c72.js" crossorigin="anonymous"></script>
+</head>
+<body>
 <div class="pagination">
- <span class="step-links">
- {% if page.has_previous %}
- <a href="?page={{ page.previous_page_number }}">Previous</a>
- {% endif %}
- <span class="current">
- Page {{ page.number }} of {{ page.paginator.num_pages }}.
- </span>
- {% if page.has_next %}
- <a href="?page={{ page.next_page_number }}">Next</a>
- {% endif %}
- </span>
+         <div class="step-links">
+                {% if page.has_previous %}
+                <a class='step-button' href="?page=1">&laquo; First</a></li>   
+                <a href="?page={{ page.previous_page_number }}">‹ Previous</a> </div>{% endif %}
+        <div class="current">
+                 Page {{ page.number }} of {{ page.paginator.num_pages }}.
+        </div>
+        <div class="step-links"> {% if page.has_next %}<a href="?page={{ page.next_page_number }}">Next ›</a>
+                <a class='step-button' href="?page={{ page.paginator.num_pages }}">Last &raquo;</a>
+        {% endif %}</div>
 </div>
+<script src="{% static 'main/app.js' %}"></script>
+</body>
+
+</html>
