@@ -1400,7 +1400,7 @@ display: flex;
 }
 
 .blog__button{
-  padding: 6px;
+  padding: 8px;
   border-radius: 3px;
   background-color: rgb(68, 68, 180);
   margin-top: 4px;
@@ -1410,6 +1410,13 @@ display: flex;
   cursor: pointer;
 
 }
+
+.blog__button:hover{
+  background-color: #3c90f0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 
 .blog__button a{
   text-decoration: none;
@@ -1453,4 +1460,37 @@ display: flex;
   text-align: justify;
   justify-content: center;
 
+}
+
+/* adding styling for blog button */
+
+.blog__list-button{
+  display: flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.blog__list-button a {
+  padding: 1rem;
+  background-color:  rgb(68, 68, 180);
+  text-decoration: none;
+  color: #fff;
+  border-radius: 10px;
+  margin-top: 1.5rem;
+  transition: all  0.3s ease-in-out;
+  font-weight: 800;
+}
+.blog__list-button a:hover{
+  background-color: #3c90f0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* styling for the home blog */
+.blog.homeblog{
+  margin-top: 3rem;
+}
+
+.blog__container.homeblog{
+  margin-bottom: 2rem;
 }
