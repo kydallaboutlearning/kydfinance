@@ -7,12 +7,22 @@
 {% block title%} | {{ post.get_translated_title }} {% endblock %}
 
 {% block content %}
-<section class="blog-details">
+<body>
+       <section class="blog-details">
           <div class="blog__container homeblog">
-                .blo
                  <div class="intro-text">
                         <h1>{{ post.get_translated_title }}</h1>
                  </div>
-          </div>
-</section>
+                 <div class="blog__img-container">
+                               <a href="{{ post.get_absolute_url }}">
+                                   <img src="{% if post.image %}{{ post.image.url }}{% else %}{% static 'main/images/no_img.avif' %}{% endif %}" alt="">
+                             </a>
+                 </div>
+                 <div class="blog__body">
+                     {{post.get_translated_body}}
+                 </div>
+                 </div>
+       </section>
+    
+</body>
 {% endblock%}
