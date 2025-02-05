@@ -1600,3 +1600,22 @@ font-weight: 600;
 text-align: start;
 }
 
+.blog__image-container.homepage {
+  width: 80%;
+  height: 60vh;
+  overflow: hidden; /* Prevents overflow */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+
+
+
+
+
+
+
+
+
