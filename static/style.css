@@ -1585,3 +1585,11 @@ a.step-button:hover{
   width: 85%;
 }
 
+.intro-text{
+  display: flex;
+  align-items: start;
+  margin: 1rem;
+  width: 90%;
+  padding: 0 2rem;
+}
+
