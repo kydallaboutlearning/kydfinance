@@ -1575,3 +1575,13 @@ a.step-button:hover{
 
 }
 
+.blog__container.detailblog{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+  color: #fff;
+  width: 85%;
+}
+
