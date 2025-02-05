@@ -1593,3 +1593,10 @@ a.step-button:hover{
   padding: 0 2rem;
 }
 
+.intro-text h1{
+font-family: helvetica;
+font-size: 2rem;
+font-weight: 600;
+text-align: start;
+}
+
