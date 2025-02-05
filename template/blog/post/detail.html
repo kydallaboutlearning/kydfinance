@@ -1,28 +1,25 @@
-{% extends 'base.html' %}
-
+{% extends 'base.html' %} 
 {% load static %}
-{% load i18n %}
-{% load static i18n %}
-
-{% block title%} | {{ post.get_translated_title }} {% endblock %}
-
+ {% load i18n %} 
+ {% load static i18n %} 
+{% block title%} | {{ post.get_translated_title }} {% endblock %} 
 {% block content %}
 <body>
-       <section class="blog-details">
-          <div class="blog__container homeblog">
-                 <div class="intro-text">
-                        <h1>{{ post.get_translated_title }}</h1>
-                 </div>
-                 <div class="blog__img-container">
-                               <a href="{{ post.get_absolute_url }}">
-                                   <img src="{% if post.image %}{{ post.image.url }}{% else %}{% static 'main/images/no_img.avif' %}{% endif %}" alt="">
-                             </a>
-                 </div>
-                 <div class="blog__body">
-                     {{post.get_translated_body}}
-                 </div>
-                 </div>
-       </section>
-    
+	<section class="blog-details">
+		<div class="blog__container detailblog">
+			<div class="intro-text">
+				<h1>{{ post.get_translated_title }}</h1>
+			</div>
+			<div class="blog__image-container homepage">
+				<a href="{{ post.get_absolute_url }}">
+					<img
+						src="{% if post.image %}{{ post.image.url }}{% else %}{% static 'main/images/no_img.avif' %}{% endif %}"
+						alt=""
+					/>
+				</a>
+			</div>
+			<div class="blog__body">{{post.get_translated_body}}</div>
+		</div>
+	</section>
 </body>
-{% endblock%}
+{% endblock %}
