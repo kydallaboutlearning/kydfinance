@@ -80,3 +80,11 @@ class BlogPost(TranslatableModel):
                 self.slug,
             ],
         )
+
+
+# creatinng models for comment system.
+
+
+# creating models for newsletter:
+class Newsletter(models.Model):
+    email = models.EmailField(blank=True)
