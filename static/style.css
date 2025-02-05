@@ -1564,3 +1564,14 @@ a.step-button:hover{
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* styling for yje blog details */
+.blog-details{
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+  justify-content: center;
+  align-items: center;
+  background-color: #131313;
+
+}
+
