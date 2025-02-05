@@ -1589,13 +1589,13 @@ a.step-button:hover{
   display: flex;
   align-items: start;
   margin: 1rem;
-  width: 90%;
+  width: 80%;
   padding: 0 2rem;
 }
 
 .intro-text h1{
 font-family: helvetica;
-font-size: 2rem;
+font-size: 3rem;
 font-weight: 600;
 text-align: start;
 }
@@ -1618,14 +1618,24 @@ text-align: start;
   justify-content: center;
   align-items: center;
   border-radius: 10px;
+  margin-bottom: 1rem;
 }
 
 .blog__image-container.homepage img {
   border-radius: 20px; 
 }
 
+.blog__body.detailblog {
+width: 80%;
+text-align: start;
+margin-top: 1rem;
+}
 
 
+.blog__body.detailblog h1{
+  font-family: poppins;
+  font-size: 1.5rem;
+}
 
 
 
