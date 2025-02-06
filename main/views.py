@@ -19,9 +19,9 @@ def LandingPageView(request):
     current_language = get_language()
 
     if request.method == "POST":
-        form = NewsletterSub(request.POST)
-        if form.is_valid():
-            user_email = form.cleaned_data["email"]
+        Newsletterform = NewsletterSub(request.POST)
+        if Newsletterform.is_valid():
+            user_email =  Newsletterform.cleaned_data["email"]
             new_sub = Newsletter.objects.create(email=user_email)
             
             # Render the email template with the translated content
@@ -37,12 +37,12 @@ def LandingPageView(request):
             return redirect("main:landing-page")  # Redirect to avoid resubmission
         
     else:
-        form = NewsletterSub()
+        Newsletterform = NewsletterSub()
 
     context = {
         "current_language": current_language,
         "posts": posts,
-        "form": form,
+        "Newsletterform": Newsletterform,
     }
     return render(request, "main/home.html", context)
 
