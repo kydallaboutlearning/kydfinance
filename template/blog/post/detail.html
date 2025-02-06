@@ -39,17 +39,24 @@
 			 </div>
 			 {% endwith %}
 			 	{% for comment in comments %}
-			 	<div class="divider">
-					<div class="comment">
-      						<p class="info">
-       							 Comment {{ forloop.counter }} by 
-        					{{ comment.created }}
-      						</p>
-      							{{ comment.body|linebreaks }}
-    						</div>
-  						{% empty %}
-    							<p>There are no comments yet.</p>
-  						{% endfor %}
+    <div class="divider">
+        <div class="comment">
+            <p class="info">
+                Comment {{ forloop.counter }} by 
+                {% if comment.profile %}
+                    {{ comment.profile.user.username }}  {# Adjust this based on your Profile model #}
+                {% else %}
+                    Anonymous
+                {% endif %}
+                on {{ comment.created|date:"F j, Y, g:i a" }}
+            </p>
+            <p>{{ comment.safe_translation_getter("body", "[No Body]")|linebreaks }}</p>
+        </div>
+    </div>
+{% empty %}
+    <p>There are no comments yet.</p>
+{% endfor %}
+
 				</div>
 			</div>
 		</section>
