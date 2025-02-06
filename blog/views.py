@@ -38,11 +38,12 @@ class Post_list(ListView):
     context_object_name = 'posts'    
 
 
-def Post_Detail(request,year,month,day,post):
+def Post_Detail(request,id,year,month,day,post):
     # get the post based on the requested data in frm of year, day,
     post = get_object_or_404(
         BlogPost,
         status=BlogPost.Status.PUBLISHED,
+        id = id,
         slug=post,
         publish__year=year,
         publish__month=month,
