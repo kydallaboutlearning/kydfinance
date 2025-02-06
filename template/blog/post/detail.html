@@ -50,7 +50,7 @@
                 {% endif %}
                 on {{ comment.created|date:"F j, Y, g:i a" }}
             </p>
-            <p>{{ comment.safe_translation_getter("body", "[No Body]")|linebreaks }}</p>
+            <p>{{ comment.translated_body|linebreaks }}</p>
         </div>
     </div>
 {% empty %}
