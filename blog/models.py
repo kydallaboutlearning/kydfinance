@@ -5,7 +5,7 @@ from parler.managers import TranslatableManager
 from django.contrib.auth import get_user_model
 from django.urls import reverse
 from django.utils import timezone
-from accounst.models import Profile
+from accounts.models import Profile
 from django.utils.translation import gettext_lazy as _
 
 
@@ -20,8 +20,8 @@ class BlogPost(TranslatableModel):
     User = get_user_model()  
     
     class Status(models.TextChoices):
-        DRAFT = _('Draft'), _('Draft')
-        PUBLISHED = _('Published'), _('Published')
+        DRAFT = 'DF', _('Draft')
+        PUBLISHED = 'PB', _('Published')
 
     # Fields that are not translatable
         # Translatable fields
@@ -63,13 +63,13 @@ class BlogPost(TranslatableModel):
     # getting the translation
 
     def __str__(self):
-        return self.safe_translation_getter(_("title"), default=_("[No Title]"))
+        return self.safe_translation_getter("title", default=_("[No Title]"))
     
     def get_translated_title(self):
-        return self.safe_translation_getter(_("title"), default=_("[No Title]"))
+        return self.safe_translation_getter("title", default=_("[No Title]"))
 
     def get_translated_body(self):
-        return self.safe_translation_getter(_("body"), default=_("[No Body]"))
+        return self.safe_translation_getter("body", default=_("[No Body]"))
 
     # function to get url fro the post detail
     def get_absolute_url(self):
@@ -92,7 +92,10 @@ class Comment(TranslatableModel):
     profile = models.ForeignKey(
         Profile,
         on_delete=models.CASCADE,
-        related_name=_('profile')
+        related_name=_('comments_by_profile'),
+        null=True,  
+        blank=True  #  Optional field
+
     )
     post = models.ForeignKey(
         BlogPost,
@@ -114,7 +117,8 @@ class Comment(TranslatableModel):
         ]
 
     def __str__(self):
-        return f"Comment by {self.safe_translation_getter("name", default=_("Anonymous"))} on {self.post}"
+        note = _("Comment by")
+        return f"{note}: {self.safe_translation_getter("name", default=_("Anonymous"))} on {self.post}"
 
 
 
