@@ -5,6 +5,8 @@ from parler.managers import TranslatableManager
 from django.contrib.auth import get_user_model
 from django.urls import reverse
 from django.utils import timezone
+from accounst.models import Profile
+from django.utils.translation import gettext_lazy as _
 
 
 
@@ -18,8 +20,8 @@ class BlogPost(TranslatableModel):
     User = get_user_model()  
     
     class Status(models.TextChoices):
-        DRAFT = 'DF', 'Draft'
-        PUBLISHED = 'PB', 'Published'
+        DRAFT = _('Draft'), _('Draft')
+        PUBLISHED = _('Published'), _('Published')
 
     # Fields that are not translatable
         # Translatable fields
@@ -30,7 +32,7 @@ class BlogPost(TranslatableModel):
     author = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
-        related_name="blog_posts",
+        related_name=_("blog_posts"),
         null=True,  #  Allow existing records to have no author
         blank=True  #  Optional field
     )
@@ -61,13 +63,13 @@ class BlogPost(TranslatableModel):
     # getting the translation
 
     def __str__(self):
-        return self.safe_translation_getter("title", default="[No Title]")
+        return self.safe_translation_getter(_("title"), default=_("[No Title]"))
     
     def get_translated_title(self):
-        return self.safe_translation_getter("title", default="[No Title]")
+        return self.safe_translation_getter(_("title"), default=_("[No Title]"))
 
     def get_translated_body(self):
-        return self.safe_translation_getter("body", default="[No Body]")
+        return self.safe_translation_getter(_("body"), default=_("[No Body]"))
 
     # function to get url fro the post detail
     def get_absolute_url(self):
@@ -87,13 +89,17 @@ class BlogPost(TranslatableModel):
 
 
 class Comment(TranslatableModel):
+    profile = models.ForeignKey(
+        Profile,
+        on_delete=models.CASCADE,
+        related_name=_('profile')
+    )
     post = models.ForeignKey(
         BlogPost,
         on_delete=models.CASCADE,
-        related_name='comments'
+        related_name=_('comments')
     )
     translations = TranslatedFields(
-        name=models.CharField(max_length=80),
         body=models.TextField()
     )
     email = models.EmailField()
@@ -108,7 +114,7 @@ class Comment(TranslatableModel):
         ]
 
     def __str__(self):
-        return f"Comment by {self.safe_translation_getter("name", default="Anonymous")} on {self.post}"
+        return f"Comment by {self.safe_translation_getter("name", default=_("Anonymous"))} on {self.post}"
 
 
 
