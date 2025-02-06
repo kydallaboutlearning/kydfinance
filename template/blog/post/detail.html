@@ -38,9 +38,20 @@
    			 </h2>
 			 </div>
 			 {% endwith %}
-			 	<div class="divider"></div>
-		</div>
-
-	</section>
+			 	{% for comment in comments %}
+			 	<div class="divider">
+					<div class="comment">
+      						<p class="info">
+       							 Comment {{ forloop.counter }} by 
+        					{{ comment.created }}
+      						</p>
+      							{{ comment.body|linebreaks }}
+    						</div>
+  						{% empty %}
+    							<p>There are no comments yet.</p>
+  						{% endfor %}
+				</div>
+			</div>
+		</section>
 </body>
 {% endblock %}
