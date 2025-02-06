@@ -114,6 +114,8 @@ class Comment(TranslatableModel):
         indexes = [
             models.Index(fields=['created']),
         ]
+    
+    
 
     def __str__(self):
         note = _("Comment by")
