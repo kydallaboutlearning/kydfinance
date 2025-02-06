@@ -1,6 +1,6 @@
 from django.contrib import admin
 from parler.admin import TranslatableAdmin
-from .models import BlogPost
+from .models import BlogPost, Comment
 
 # Register your models here.
 @admin.register(BlogPost)
@@ -21,3 +21,17 @@ class BlogAdmin(TranslatableAdmin):
         return obj.safe_translation_getter('title', default='[No Title]')  #  Fallback for missing translations
     
     get_title.short_description = 'title'  # Set column header in admin panel
+
+
+
+@admin.register(Comment)
+class CommentAdmin(TranslatableAdmin):
+    list_display = ('profile', 'post', 'get_translated_body', 'created', 'active')
+    list_filter = ('active', 'created', 'updated')
+    search_fields = ('translations__body',)
+    ordering = ('-created',)
+
+    def get_translated_body(self, obj):
+        return obj.safe_translation_getter("body", default=_("[No Body]"))
+    get_translated_body.short_description = _("Comment Body")
+
