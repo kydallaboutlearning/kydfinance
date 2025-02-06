@@ -1,4 +1,4 @@
 from .forms import NewsletterSub
 
 def newsletterform(request):
-        return('newsletterform': NewsletterSub())
+    return {"Newsletterform": NewsletterSub()}  # ✅ Matches template variable name
