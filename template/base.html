@@ -107,10 +107,11 @@
       <div class="newsletter__content">
         <h1>{% trans "Join our newsletter" %}</h1>
         <p>{% trans "Subscribe to our newsletter to get the latest updates on our services and promotions." %}</p>
-        <form action="/submit" method="post">
-          <input type="email" name="email" placeholder="{% trans 'Enter your email' %}" required>
-          <button type="submit">{% trans "Subscribe" %}</button>
-        </form>
+      <form method="post">
+      {% csrf_token %}
+        {{ form.as_p }}
+    <button type="submit">{% trans "Subscribe" %}</button>
+</form>
       </div>
     </div>
     <div class="footer__links">
