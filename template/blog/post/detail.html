@@ -18,8 +18,29 @@
 					/>
 				</a>
 			</div>
-			<div class="blog__body detailblog"><p>{{post.get_translated_body}}</p></div>
+			<div class="blog__body detailblog">
+				<p>{{post.get_translated_body}}</p>
+			</div>
+			
+			 {% with comments.count as total_comments %}
+    `			<div class="comment_count"><h2>
+     				 {{ total_comments }} comment{{ total_comments|pluralize }}
+   			 </h2>
+			 </div>
+  			{% endwith %}
 		</div>
+		<div class="comment">
+			<div class="divider"></div>
+			 {% with comments.count as total_comments %}
+    `			<div class="comment_count">
+			<h2>
+     			{{ total_comments }} comment{{ total_comments|pluralize }}
+   			 </h2>
+			 </div>
+			 {% endwith %}
+			 	<div class="divider"></div>
+		</div>
+
 	</section>
 </body>
 {% endblock %}
