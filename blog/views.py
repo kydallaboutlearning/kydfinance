@@ -4,6 +4,8 @@ from .models import BlogPost
 from django.views.generic import ListView
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.views.decorators.http import require_POST
+from django.contrib.auth.decorators import login_required
+from accounts.models import Profile
 
 # Create your views here.
 
@@ -40,6 +42,7 @@ class Post_list(ListView):
 
 
 def Post_Detail(request,id,year,month,day,post):
+    
     # get the post based on the requested data in frm of year, day,
     post = get_object_or_404(
         BlogPost,
@@ -55,13 +58,18 @@ def Post_Detail(request,id,year,month,day,post):
 
 
 
-
+@login_required
 @require_POST
-def post_comment(request, post_id):
+def post_comment(request, post_id,year,month,day,post):
+    if request.user.is_authenticated:  # Ensure user is logged in
+        try:
+            profile = Profile.objects.get(user=request.user)
+        except Profile.DoesNotExist:
+            profile = None  # If profile doesn't exist, return None
     post = get_object_or_404(
          BlogPost,
         status=BlogPost.Status.PUBLISHED,
-        id = id,
+        id = post_id,
         slug=post,
         publish__year=year,
         publish__month=month,
