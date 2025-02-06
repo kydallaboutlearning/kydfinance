@@ -25,7 +25,7 @@ def LandingPageView(request):
             new_sub = Newsletter.objects.create(email=user_email)
             
             # Render the email template with the translated content
-            email_subject = _("Welcome to Our KYD-FINACE Newsletter")
+            email_subject = _("Welcome to KYD-FINANCE Newsletter")
             email_body = render_to_string("newsletter/newsletter_email.html", {"site_name": "KYD-FINANCE", "current_language": current_language})
             
             # Send email
