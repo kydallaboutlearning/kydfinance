@@ -6,6 +6,9 @@ from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.views.decorators.http import require_POST
 from django.contrib.auth.decorators import login_required
 from accounts.models import Profile
+from .models import Comment
+
+
 
 # Create your views here.
 
@@ -42,6 +45,8 @@ class Post_list(ListView):
 
 
 def Post_Detail(request,id,year,month,day,post):
+
+    
     
     # get the post based on the requested data in frm of year, day,
     post = get_object_or_404(
@@ -53,8 +58,11 @@ def Post_Detail(request,id,year,month,day,post):
         publish__month=month,
         publish__day=day,
     ) 
-    
-    return render(request, 'blog/post/detail.html', {'post': post})
+      # List of active comments for this post
+    comments = post.comments.filter(active=True)
+    # Form for users to comment
+    form = CommentForm()
+    return render(request, 'blog/post/detail.html', {'post': post,'comments':comments})
 
 
 
