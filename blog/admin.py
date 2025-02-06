@@ -1,6 +1,7 @@
 from django.contrib import admin
 from parler.admin import TranslatableAdmin
 from .models import BlogPost, Comment
+from django.utils.translation import gettext_lazy as _
 
 # Register your models here.
 @admin.register(BlogPost)
