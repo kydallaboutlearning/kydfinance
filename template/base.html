@@ -109,7 +109,7 @@
         <p>{% trans "Subscribe to our newsletter to get the latest updates on our services and promotions." %}</p>
       <form method="post">
       {% csrf_token %}
-        {{ form.as_p }}
+        {{  Newsletterform.as_p }}
     <button type="submit">{% trans "Subscribe" %}</button>
 </form>
       </div>
