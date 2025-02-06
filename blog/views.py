@@ -61,9 +61,8 @@ def Post_Detail(request,id,year,month,day,post):
     ) 
       # List of active comments for this post
     comments = post.comments.filter(active=True)
-    # Form for users to comment
-    form = CommentForm()
-    return render(request, 'blog/post/detail.html', {'post': post,'comments':comments})
+
+    return render(request, 'blog/post/detail.html', {'post': post,'comments':comments,})
 
 
 
