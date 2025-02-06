@@ -1,0 +1,34 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="{{ current_language }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% blocktrans %}Welcome to {{ site_name }} Finance Newsletter{% endblocktrans %}</title>
+</head>
+<body style="font-family: Arial, sans-serif; padding: 20px; color: #333;">
+    <h2 style="color: #1a73e8;">
+        {% blocktrans %}Your Weekly Insights into Smart Investing & Financial Growth{% endblocktrans %}
+    </h2>
+    
+    <p>
+        {% blocktrans %}Thank you for subscribing to {{ site_name }} Finance! Each week, we bring you expert insights, market trends, and financial strategies to help you make informed decisions and grow your wealth.{% endblocktrans %}
+    </p>
+
+    <h3>{% blocktrans %}Here’s what you can expect:{% endblocktrans %}</h3>
+    <ul>
+        <li>{% blocktrans %}Market updates and economic trends{% endblocktrans %}</li>
+        <li>{% blocktrans %}Investment strategies from top financial experts{% endblocktrans %}</li>
+        <li>{% blocktrans %}Personal finance tips to help you save and invest smarter{% endblocktrans %}</li>
+    </ul>
+
+    <p>
+        {% blocktrans %}Stay ahead in the financial world—your journey to smarter investing starts now!{% endblocktrans %}
+    </p>
+
+    <p style="margin-top: 20px;">
+        {% blocktrans %}Best regards,{% endblocktrans %}<br>
+        <strong>{{ site_name }} Finance Team</strong>
+    </p>
+</body>
+</html>
