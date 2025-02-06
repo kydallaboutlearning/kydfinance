@@ -61,6 +61,9 @@ def Post_Detail(request,id,year,month,day,post):
     ) 
       # List of active comments for this post
     comments = post.comments.filter(active=True)
+    # Ensure translated body text is retrieved
+    for comment in comments:
+        comment.translated_body = comment.safe_translation_getter("body", default="[No Body]")
 
     return render(request, 'blog/post/detail.html', {'post': post,'comments':comments,})
 
