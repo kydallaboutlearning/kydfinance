@@ -1632,3 +1632,11 @@ a.step-button:hover {
     justify-content: center;
     background-color: #ddd; /* Optional: Gray background for empty profiles */
 }
+
+.profile__image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;  /* Ensures the image fully covers the container */
+	border-radius: 10px;
+}
+
