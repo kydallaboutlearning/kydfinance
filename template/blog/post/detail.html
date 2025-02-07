@@ -21,39 +21,52 @@
 			<div class="blog__body detailblog">
 				<p>{{post.get_translated_body}}</p>
 			</div>
-			
-			 {% with comments.count as total_comments %}
-    `			<div class="comment_count"><h2>
-     				 {{ total_comments }} comment{{ total_comments|pluralize }}
-   			 </h2>
-			 </div>
-  			{% endwith %}
 		</div>
+
 		<div class="comment">
 			<div class="divider"></div>
 			 {% with comments.count as total_comments %}
-    `			<div class="comment_count">
-			<h2>
-     			{{ total_comments }} comment{{ total_comments|pluralize }}
-   			 </h2>
-			 </div>
-			 {% endwith %}
-			 	{% for comment in comments %}
-                		Comment {{ forloop.counter }} by 
-                		{% if comment.profile %}
-                    		{{ comment.profile.user.username }}  {# Adjust this based on your Profile model #}
-                		{% else %}
-                    			Anonymous
-                		{% endif %}
-                	on {{ comment.created|date:"F j, Y, g:i a" }}
-            		</p>
-            	<p>{{ comment.translated_body|linebreaks }}</p>
-{% empty %}
-    <p>There are no comments yet.</p>
-{% endfor %}
-
-				</div>
+   			<div class="comment_count">
+				<h2>{{ total_comments }} comment{{ total_comments|pluralize }}</h2>
+				{% endwith %}
 			</div>
+			<div class="divider short"></div>
+			
+			{% for comment in comments %}
+    <div class="comment__info-container flex">
+        {% if comment.profile %}
+            <div class="profile__image small">
+                <img src="{% if comment.profile.profile_pics %}{{ comment.profile.profile_pics.url }}{% else %}{% static 'main/images/no_img.avif' %}{% endif %}" alt="">
+            </div>
+            <div class="comment_info">
+                <div class="comment__name">
+                    {{ comment.profile.user.username }}
+                </div>
+        {% else %}
+            <div class="comment__name">{% trans "Anonymous" %}</div>
+        {% endif %}
+    <div class="comment__body">
+        {{ comment.translated_body|linebreaks }}
+    </div>
+
+
+            	
+			</div>
+			</div>
+			<div class="comment__date">
+			{% trans "Date:" %} {{ comment.created|date:"l, F jS, Y" }}
+			</div>
+	
+				{% empty %}
+    			<p>There are no comments yet.</p>
+    			<div class="divider"></div>
+			{% endfor %}
+
+				
+	
+		</div>
+		
+
 		</section>
 </body>
 {% endblock %}
