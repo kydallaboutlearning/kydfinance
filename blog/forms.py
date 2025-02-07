@@ -12,7 +12,7 @@ import re
 
 class CommentForm(forms.Form):
         body = forms.CharField( widget =forms.Textarea(attrs={
-                "placeholder": _("Write your comment here..."),
+                "placeholder": _("What's your thought on this..."),
                 "rows": 4,
                 "type":"text",
 
@@ -35,3 +35,23 @@ class CommentForm(forms.Form):
                         raise forms.ValidationError(_("Your comment contains spam-like content."))
         
                 return body
+
+
+
+
+class EmailPostForm(forms.Form):
+        name = forms.CharField(max_length=25)
+        email = forms.EmailField(attrs={
+                "placeholder": _("Enter your email."),
+                "type":"email",})
+        to = forms.EmailField(attrs={
+                "placeholder": _("Enter the recipients email."),
+                "type":"email",}
+)
+        widget =forms.Textarea(required=False,attrs={
+                "placeholder": _("Write your comment here..."),
+                "rows": 4,
+                "type":"text",
+
+            })
+        
