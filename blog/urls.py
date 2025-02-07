@@ -13,7 +13,8 @@ urlpatterns = [
      path('', post_list_norms, name ='post_list'),
      path(_('post_class/'), Post_list.as_view(), name = 'post_list_class'),
      path(_('<int:year>/<int:month>/<int:day>/<slug:post>/<int:id>/'), Post_Detail, name='post_detail'),
-     path(_('/<int:post_id>/create_comment_on/<slug:post>'), post_comment, name='comment_form'),
-     path(_('/<int:post_id>/comments_on/<slug:post>'), comment_view, name='comment_form'),
+     path(_('comments/<int:post_id>/<slug:post>'), comment_view, name='comment_list'),
+     path(_('/share/<int:post_id>/<slug:post>'), post_view, name='post_share'),
+
 
      ]
