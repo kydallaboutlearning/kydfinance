@@ -1385,6 +1385,8 @@ p.signup__p {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	border-radius: 20px;
+    background-color: #dddddd61; /* Optional: Gray background for empty profiles */
 }
 
 .blog__image-container img {
@@ -1512,6 +1514,7 @@ a.step-button:hover {
 	margin-top: 5rem;
 	color: #fff;
 	width: 85%;
+	margin-bottom: 1.5rem;
 }
 
 .intro-text {
@@ -1544,14 +1547,18 @@ a.step-button:hover {
 	height: 60vh;
 	overflow: hidden; /* Prevents overflow */
 	display: flex;
+	border-radius: 20px;
 	justify-content: center;
 	align-items: center;
-	border-radius: 10px;
 	margin-bottom: 1rem;
+    align-items: center;
+    background-color: #dddddd61; /* Optional: Gray background for empty profiles */
 }
 
 .blog__image-container.homepage img {
-	border-radius: 20px;
+	height: 100%;
+    width: 100%;
+    object-fit: cover;  /* Ensures the image fully covers the container */
 }
 
 .blog__body.detailblog {
@@ -1566,7 +1573,7 @@ a.step-button:hover {
 }
 
 .comment {
-	width: 90%;
+	width: 80%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -1577,11 +1584,11 @@ a.step-button:hover {
 	display: flex;
 	color: #fff;
 	align-items: start;
-	width: 100%;
+	width: 80%;
 }
 
 .divider {
-	width: 100%;
+	width: 80%;
 	height: 1px;
 	margin: 1rem 0;
 	background-color: grey;
@@ -1592,7 +1599,7 @@ a.step-button:hover {
 	width: 15%;
 	height: 1px;
 	margin: 0.5rem 0;
-	background-color: grey;
+	background-color: rgb(68, 68, 180);;
 	border-radius: 2px;
 	align-self: start;
 }
@@ -1601,25 +1608,14 @@ a.step-button:hover {
 	color: #fff;
 }
 
-.comment__info-container {
-	display: flex;
-	width: 100%;
-	color: #fff;
-	align-items: center;
+.comment__info {
 	gap: 1rem;
 }
 
-.profile__image {
-	height: 100px;
-	width: 100px;
-	border-radius: 50%;
-	overflow: hidden;
-}
-
-
-.profile image img {
-	height: 100%;
-	width: 100%;
-	object-fit: contain;
-	overflow: hidden;
+.comment__info-container {
+	display: flex;
+	width: 75%;
+	color: #fff;
+	align-items: center;
+	gap: 1rem;
 }
