@@ -11,6 +11,13 @@ from .forms import CommentForm
 from django.utils.translation import getext_lazy as _
 from django.contrib import messages
 from django.urls import reverse
+from .forms import *
+# importing requirements for sending email
+from django.shortcuts import render, redirect
+from django.core.mail import EmailMultiAlternatives
+from django.template.loader import render_to_string
+from django.conf import settings
+
 
 
 
@@ -52,7 +59,7 @@ class Post_list(ListView):
 def Post_Detail(request,id,year,month,day,post):
 
     
-    
+    commentform= CommentForm()
     # get the post based on the requested data in frm of year, day,
     post = get_object_or_404(
         BlogPost,
@@ -70,26 +77,25 @@ def Post_Detail(request,id,year,month,day,post):
         comment.translated_body = comment.safe_translation_getter("body", default=_("[No Body]"))
     
     # adding the comment form
-    commentform = CommentForm()
-    if request.user.is_authenticated:  # Ensure user is logged in
-        try:
-            profile = Profile.objects.get(user=request.user)
-        except Profile.DoesNotExist:
-            profile = None  # If profile doesn't exist, return None
+    if request.method == 'POST':
+        commentform = CommentForm(data=request.POST)
+        if request.user.is_authenticated:  # Ensure user is logged in
+            try:
+                profile = Profile.objects.get(user=request.user)
+            except Profile.DoesNotExist:
+                 profile = None  # If profile doesn't exist, return None
 
 
-        # A comment was posted
-        comment_form = CommentForm(data=request.POST)
-        if form.is_valid():
-            # Create a Comment object without saving it to the database
-            comment = form.save(commit=False)
-            # Assign the post to the comment
-            comment.post = post
-            # Save the comment to the database
-            comment.save()
-    else:
-        messages.error(request,'Sorry You have to login or create and account to comment')
-        return render()
+            if form.is_valid():
+                # Create a Comment object without saving it to the database
+                comment = form.save(commit=False)
+                # Assign the post to the comment
+                comment.post = post
+                # Save the comment to the database
+                comment.save()
+        else:
+            messages.error(request,'Sorry You have to login or create and account to comment')
+            return redirect('accounts:login')
 
     return render(request, 'blog/post/detail.html', {'post': post,'comments':comments,})
 
@@ -97,7 +103,7 @@ def comment_view(request,post_id,year,month,day,post):
     post = get_object_or_404(
         BlogPost,
         status=BlogPost.Status.PUBLISHED,
-        id = id,
+        id = post_id,
         slug=post,
         publish__year=year,
         publish__month=month,
@@ -107,6 +113,52 @@ def comment_view(request,post_id,year,month,day,post):
     return render(
         request,'blog/post/comments/list.html',{'post':post,'comments':comments,}
     )
+
+
+def post_share(request,post_id,year,month,day,post):
+    # getting the postvia it's
+     post = get_object_or_404(
+        BlogPost,
+        id = post_id,
+        slug=post,
+        publish__year=year,
+        publish__month=month,
+        publish__day=day,
+    ) 
+    sent = False
+
+    if request.method == 'POST':
+        form = EmailPostForm(data=request.POST)
+        if form.is_valid()
+            cd = form.cleaned_data
+            post_url= request.build_absolute_uri(
+                 post.get_absolute_url()
+            ) #getting the url of the post to  be shared
+
+            email_subject = (f"{cd['name']} ({cd['email']}) "
+                             f"recommends you read {post.title}"
+                             )
+            email_body = render_to_string('blog/share-email.html',{'cd':cd,'post_url',post_url})
+            email = EmailMultiAlternatives(email_subject, "",cd['email'], cd['to'])
+            email.attach_alternative(email_body,'text/html')
+            email.send()
+            sent =True
+            messages.success(request, _(f"You have succesfully sent the email to {cd['to']}."))
+        else:
+            form = EmailPostForm()
+
+    return render(
+            request,
+            'blog/post/share.html',
+             {
+        'post': post,
+        'form': form,
+            'sent': sent
+            }
+        )
+
+
+
 
 
 
