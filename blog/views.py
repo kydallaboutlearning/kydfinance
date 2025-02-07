@@ -9,6 +9,9 @@ from accounts.models import Profile
 from .models import Comment
 from .forms import CommentForm
 from django.utils.translation import getext_lazy as _
+from django.contrib import messages
+from django.urls import reverse
+
 
 
 
@@ -65,6 +68,28 @@ def Post_Detail(request,id,year,month,day,post):
     # Ensure translated body text is retrieved
     for comment in comments:
         comment.translated_body = comment.safe_translation_getter("body", default=_("[No Body]"))
+    
+    # adding the comment form
+    commentform = CommentForm()
+    if request.user.is_authenticated:  # Ensure user is logged in
+        try:
+            profile = Profile.objects.get(user=request.user)
+        except Profile.DoesNotExist:
+            profile = None  # If profile doesn't exist, return None
+
+
+        # A comment was posted
+        comment_form = CommentForm(data=request.POST)
+        if form.is_valid():
+            # Create a Comment object without saving it to the database
+            comment = form.save(commit=False)
+            # Assign the post to the comment
+            comment.post = post
+            # Save the comment to the database
+            comment.save()
+    else:
+        messages.error(request,'Sorry You have to login or create and account to comment')
+        return render()
 
     return render(request, 'blog/post/detail.html', {'post': post,'comments':comments,})
 
@@ -86,41 +111,6 @@ def comment_view(request,post_id,year,month,day,post):
 
 
 
-@login_required
-@require_POST
-def post_comment(request, post_id,year,month,day,post):
-    if request.user.is_authenticated:  # Ensure user is logged in
-        try:
-            profile = Profile.objects.get(user=request.user)
-        except Profile.DoesNotExist:
-            profile = None  # If profile doesn't exist, return None
-    post = get_object_or_404(
-         BlogPost,
-        status=BlogPost.Status.PUBLISHED,
-        id = post_id,
-        slug=post,
-        publish__year=year,
-        publish__month=month,
-        publish__day=day,
-    )
-    comment = None
-    # A comment was posted
-    form = CommentForm(data=request.POST)
-    if form.is_valid():
-        # Create a Comment object without saving it to the database
-        comment = form.save(commit=False)
-        # Assign the post to the comment
-        comment.post = post
-        # Save the comment to the database
-        comment.save()
-    return render(
-        request,
-        'blog/post/comments/comment_form.html',
-        {
-            'post': post,
-            'form': form,
-            'comment': comment
-        },
-    )
+
     
     
