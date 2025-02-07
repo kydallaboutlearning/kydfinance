@@ -11,6 +11,9 @@ app_name = 'blog'
 # setting up the URL patterns
 urlpatterns = [
      path('', post_list_norms, name ='post_list'),
-     path('post_class/', Post_list.as_view(), name = 'post_list_class'),
-     path('<int:year>/<int:month>/<int:day>/<slug:post>/<int:id>/', Post_Detail, name='post_detail',),
+     path(_('post_class/'), Post_list.as_view(), name = 'post_list_class'),
+     path(_('<int:year>/<int:month>/<int:day>/<slug:post>/<int:id>/'), Post_Detail, name='post_detail'),
+     path(_('/<int:post_id>/create_comment_on/<slug:post>'), post_comment, name='comment_form'),
+     path(_('/<int:post_id>/comments_on/<slug:post>'), comment_view, name='comment_form'),
+
      ]
