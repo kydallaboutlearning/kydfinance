@@ -509,6 +509,7 @@
 }
 
 
+
 .features-grid {
 	display: flex;
 	flex-wrap: wrap;
@@ -1531,6 +1532,20 @@ a.step-button:hover {
 	font-size: 3rem;
 	font-weight: 600;
 	text-align: start;
+}
+@media and (max-width:968px){
+	.intro-text {
+		flex-direction: column;
+		gap: 1rem;
+	}
+	
+	.intro-text h1{
+		font-size: 2rem;
+	}
+
+	.intro-text p{
+		font-size: 1rem;
+	}
 }
 
 .blog__image-container.homepage {
