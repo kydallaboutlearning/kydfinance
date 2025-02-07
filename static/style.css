@@ -508,6 +508,7 @@
 		"Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
+
 .features-grid {
 	display: flex;
 	flex-wrap: wrap;
@@ -1618,4 +1619,16 @@ a.step-button:hover {
 	color: #fff;
 	align-items: center;
 	gap: 1rem;
+}
+
+
+.profile__image {
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    overflow: hidden;  /* Ensures the image stays inside the circle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ddd; /* Optional: Gray background for empty profiles */
 }
