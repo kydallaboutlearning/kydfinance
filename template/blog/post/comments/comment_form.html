@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block title %} {% trans "| Leave a Comment" %}{% endblock %}
+
+
+
+{% block content %}
+
+<main>
+  <div class="header__container">
+      <!-- Placeholder for additional content -->
+  </div>
+
+  <div class="signup__container">
+      <div class="signup__card">
+          <div class="signup__content">
+              <div class="signup__header">
+                 {% if comment %}
+                        <h2>Your comment has been added.</h2>
+                 <p><a href="{{ post.get_absolute_url }}">Back to the post</a></p>
+                        {% else %}
+                        {% include "blog/post/includes/comment_form.html" %}
+                        {% endif %}
+                  <h1>{% trans "Leave a Comment" %}</h1>
+                  <form action="{% url 'post_comment' %}" method="post">
+                      {% csrf_token %}
+                      {{ form.as_p }}
+                      <button type="submit">{% trans 'Submit Comment' %}</button>
+                  </form>
+                  
+                  <div class="signup__options-container">
+                      <p class="signup__p">{% trans "Want to reply instead?" %} <a href="{% url 'reply_comment' %}">{% trans "Reply here" %}</a></p>
+                  </div>              
+              </div>
+          </div>
+      </div>
+  </div>
+</main>
+
+{% endblock content %}
