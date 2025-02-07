@@ -56,48 +56,62 @@ class Post_list(ListView):
     context_object_name = 'posts'    
 
 
-def Post_Detail(request,id,year,month,day,post):
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib import messages
+from .models import BlogPost, Profile, Comment
+from .forms import CommentForm
+from django.utils.translation import gettext as _
 
-    
-    commentform= CommentForm()
-    # get the post based on the requested data in frm of year, day,
+def Post_Detail(request, id, year, month, day, post):
+    # Retrieve the post
     post = get_object_or_404(
         BlogPost,
         status=BlogPost.Status.PUBLISHED,
-        id = id,
+        id=id,
         slug=post,
         publish__year=year,
         publish__month=month,
         publish__day=day,
-    ) 
-      # List of active comments for this post
+    )
+
+    # Get the latest 5 active comments
     comments = post.comments.filter(active=True)[:5]
-    # Ensure translated body text is retrieved
+    
+    # Translate comment body text
     for comment in comments:
         comment.translated_body = comment.safe_translation_getter("body", default=_("[No Body]"))
-    
-    # adding the comment form
-    if request.method == 'POST':
+
+    # Initialize the comment form
+    commentform = CommentForm()
+
+    if request.method == "POST":
         commentform = CommentForm(data=request.POST)
-        if request.user.is_authenticated:  # Ensure user is logged in
+        
+        if request.user.is_authenticated:
             try:
                 profile = Profile.objects.get(user=request.user)
             except Profile.DoesNotExist:
-                 profile = None  # If profile doesn't exist, return None
+                profile = None  # Profile doesn't exist
 
-
-            if form.is_valid():
-                # Create a Comment object without saving it to the database
-                comment = form.save(commit=False)
-                # Assign the post to the comment
-                comment.post = post
-                # Save the comment to the database
+            if commentform.is_valid():
+                # Save the comment
+                comment = commentform.save(commit=False)
+                comment.post = post  # Assign post
+                comment.profile = profile  # Assign user profile
                 comment.save()
-        else:
-            messages.error(request,'Sorry You have to login or create and account to comment')
-            return redirect('accounts:login')
+                
+                messages.success(request, "Your comment has been posted!")
+                return redirect(request.path)  # Refresh the page
 
-    return render(request, 'blog/post/detail.html', {'post': post,'comments':comments,})
+        else:
+            messages.error(request, "Sorry, you need to log in or create an account to comment.")
+            return redirect("accounts:login")
+
+    return render(
+        request,
+        "blog/post/detail.html",
+        {"post": post, "comments": comments, "commentform": commentform},
+    )
 
 def comment_view(request,post_id,year,month,day,post):
     post = get_object_or_404(
