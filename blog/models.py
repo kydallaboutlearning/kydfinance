@@ -92,7 +92,7 @@ class Comment(TranslatableModel):
     profile = models.ForeignKey(
         Profile,
         on_delete=models.CASCADE,
-        related_name=_('comments_by_profile'),
+        related_name=('comments_by_profile'),
         null=True,  
         blank=True  #  Optional field
 
@@ -100,7 +100,7 @@ class Comment(TranslatableModel):
     post = models.ForeignKey(
         BlogPost,
         on_delete=models.CASCADE,
-        related_name=_('comments')
+        related_name=('comments')
     )
     translations = TranslatedFields(
         body=models.TextField()
