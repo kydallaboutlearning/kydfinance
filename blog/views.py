@@ -8,6 +8,7 @@ from django.contrib.auth.decorators import login_required
 from accounts.models import Profile
 from .models import Comment
 from .forms import CommentForm
+from django.utils.translation import getext_lazy as _
 
 
 
@@ -60,12 +61,28 @@ def Post_Detail(request,id,year,month,day,post):
         publish__day=day,
     ) 
       # List of active comments for this post
-    comments = post.comments.filter(active=True)
+    comments = post.comments.filter(active=True)[:5]
     # Ensure translated body text is retrieved
     for comment in comments:
-        comment.translated_body = comment.safe_translation_getter("body", default="[No Body]")
+        comment.translated_body = comment.safe_translation_getter("body", default=_("[No Body]"))
 
     return render(request, 'blog/post/detail.html', {'post': post,'comments':comments,})
+
+def comment_view(request,post_id,year,month,day,post):
+    post = get_object_or_404(
+        BlogPost,
+        status=BlogPost.Status.PUBLISHED,
+        id = id,
+        slug=post,
+        publish__year=year,
+        publish__month=month,
+        publish__day=day,
+    )  
+    comments = post.comments.filter(active=True)
+    return render(
+        request,'blog/post/comments/list.html',{'post':post,'comments':comments,}
+    )
+
 
 
 
@@ -98,7 +115,7 @@ def post_comment(request, post_id,year,month,day,post):
         comment.save()
     return render(
         request,
-        'blog/post/comment.html',
+        'blog/post/comments/comment_form.html',
         {
             'post': post,
             'form': form,
