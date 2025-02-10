@@ -119,7 +119,7 @@ class Comment(TranslatableModel):
 
     def __str__(self):
         note = _("Comment by")
-        return f"{note}: {self.profile} - {self.safe_translation_getter('body', default=_('[No Body]'))} on {self.post}"
+        return f"{note}: {self.profile} - {self.safe_translation_getter('body')} on {self.post}"
 
 
 
