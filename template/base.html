@@ -17,6 +17,8 @@
 
   <link rel="stylesheet" href="{% static 'style.css' %}">
   <script src="https://kit.fontawesome.com/6012a26c72.js" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=YOUR_PROPERTY_ID&product=inline-share-buttons" async="async"></script>
+
 </head>
 
 <body>
@@ -35,7 +37,7 @@
         {% trans "Features" %}<i class="fa-solid fa-caret-down"></i>
       </p>
 
-      <ul class="languages dropdown">
+      <ul class="languages dropdown feature_">
         <li class="language__list feature_">
           <a href="/services" class="language__link feature_">{% trans "Services" %}</a>
         </li>
@@ -112,6 +114,8 @@
         {{  Newsletterform.as_p }}
     <button type="submit">{% trans "Subscribe" %}</button>
 </form>
+<div class="sharethis-inline-share-buttons"></div>
+
       </div>
     </div>
     <div class="footer__links">
