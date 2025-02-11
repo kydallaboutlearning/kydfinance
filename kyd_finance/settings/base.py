@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'parler',
     'phonenumber_field',
     'social_django',
+    'ckeditor'
 ]
 
 
@@ -188,7 +189,7 @@ DEBUG = True
 
 # setting upthe url
 
-LOGIN_REDIRECT_URL = 'dashboard'
+LOGIN_REDIRECT_URL = 'main:landing-page'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 
