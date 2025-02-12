@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from .models import Profile
 from .forms import RegistrationForm
-
+from django.contrib import messages
 
 from django.contrib.auth.models import User
 
@@ -41,7 +41,13 @@ def register_view(request):
                 email=email,
                 password=make_password(password),
             )
+            messages.success(request,f"Congrats,{user.username}. Your account has been created successfully")
+
             return redirect("accounts:login")  # Redirect to login after registration
+        else:
+            messages.error(request,'Pls, correct the error below')
+            form = RegistrationForm()
+            
     else:
         form = RegistrationForm()
 

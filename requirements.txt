@@ -5,9 +5,12 @@ charset-normalizer==3.4.1
 cryptography==42.0.8
 decouple==0.0.7
 defusedxml==0.8.0rc2
-Django==5.1.5
+Django==5.1.6
+django-ckeditor==6.7.2
+django-ckeditor-5==0.2.16
 django-environ==0.12.0
 django-extensions==3.2.3
+django-js-asset==3.0.1
 django-parler==2.3
 django-phonenumber-field==8.0.0
 django-rosetta==0.10.1

@@ -1,0 +1,49 @@
+{% extends 'accounts_base.html' %}
+  {% load i18n %}
+{% block content %}
+{% load static %}
+
+{% block title %} | {% trans "Share this post" %}{% endblock %}
+<main>
+  <div class="header__container">
+      <!-- Placeholder for any additional content, if necessary -->
+  </div>
+
+  <div class="signup__container">
+      <div class="signup__card">
+          <div class="signup__content">
+
+
+              <div class="signup__header">
+                {% if sent %}
+            <h1>{% trans "E-mail successfully sent" %} </h1>
+             <div class="social__text">
+               "{{ post.title }}" {% "was successfully sent to" %} {{ form.cleaned_data.to }}.
+              </div>
+                 
+                 <div class="signup__options-container">
+                  <div class="signup__option">
+                  <p  class="signup__p 1"><p style="font-size: 1rem;">{% trans "Get back To the post" %} <a href="{{post.get_absolute_url}}">{% trans "Back" %}</a></p>
+                </div>
+  
+                    {% else %}
+              
+                  <h1>{% trans "Share" %}  {{ post.get_translated_title }} by email </h1>
+                </div>
+                  <form  method="post">
+                      {% csrf_token %}
+                      {{ form.as_p }}
+
+                      <button type="submit" value="Share">{% trans 'Share this post' %}</button>
+                  </form>
+                  <div class="signup__options-container">
+                  <div class="signup__option">
+                  <p  class="signup__p 1">{% trans "Get back To the post" %} <a href="{{post.get_absolute_url}}">{% trans "Back" %}</a></p>
+                </div>
+                 
+              {% endif %}
+          </div>
+      </div>
+  </div>
+</main>
+{% endblock content %}

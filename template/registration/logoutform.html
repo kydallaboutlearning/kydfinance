@@ -10,9 +10,37 @@
        {% trans "If yes click the button below, if no" %} <a href="{% url 'main:landing-page' %}">{% translate "Get back to shopping" %}</a>
 </h1>
 
- <form id="logout-form" method="post" action="{% url 'logout' %}">
-     {% csrf_token %}
-     <input type="hidden" name="next" value="{{ next }}" />
-     <button type="submit" value="log-out">{% trans 'Log Out ' %}</button>
- </form>
+
+ {% extends 'accounts_base.html' %}
+  {% load i18n %}
+{% block content %}
+{% load static %}
+
+{% block title %} | {% trans "Share this post" %}{% endblock %}
+<main>
+  <div class="header__container">
+      <!-- Placeholder for any additional content, if necessary -->
+  </div>
+
+  <div class="signup__container">
+      <div class="signup__card">
+          <div class="signup__content">
+
+
+              <div class="signup__header">
+            <h1>{% trans "LogOut" %} </h1>
+             <div class="social__text">
+                {% translate "Are You sure wanna logout ?" %}
+       {% trans "If yes click the button below, if no" %} <a href="{% url 'main:landing-page' %}">{% translate "Get back to Homepage" %}
+              </div>
+               <form id="logout-form" method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                        <input type="hidden" name="next" value="{{ next }}" />
+                        <button type="submit" value="log-out">{% trans 'Log Out ' %}</button>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock content %}

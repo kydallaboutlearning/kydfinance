@@ -97,11 +97,11 @@ def Post_Detail(request, id, year, month, day, post):
                 body = commentform.cleaned_data['body']
                 comment = Comment.objects.create(profile=profile,post=post,body=body)  # Assign post
                 
-                messages.success(request, "Your comment has been posted!")
+                messages.success(request, _("Your comment has been posted!"))
                 return redirect(request.path)  # Refresh the page
 
         else:
-            messages.error(request, "Sorry, you need to log in or create an account to comment.")
+            messages.error(request, _("Sorry, you need to log in or create an account to comment."))
             return redirect("accounts:login")
 
     return render(

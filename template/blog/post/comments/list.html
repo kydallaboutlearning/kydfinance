@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load static i18n %}
+
+{% block title %} | {% trans "Comments on " %}{{ post.get_translated_title }} {% endblock %}
+
+{% block content %}
+<body>
+    <section class="blog-details">
+        <div class="blog__container detailblog">
+            <div class="intro-text"> 
+                <h1>{% trans "Comment(s) on " %} {{comments.post.get_translated_title}}</h1>
+            </div>
+
+         <div class="comment">
+            {% with comments.count as total_comments %}
+                <div class="comment_count">
+                    <h2>{{ total_comments }} comment{{ total_comments|pluralize }}</h2>
+                </div>
+            {% endwith %}
+
+            <div class="divider"></div>
+
+            {% for comment in comments %}
+                <div class="comment__info-container flex">
+                    {% if comment.profile %}
+                        <div class="profile__image small">
+                            <img src="{% if comment.profile.profile_pics %}{{ comment.profile.profile_pics.url }}{% else %}{% static 'main/images/no_img.avif' %}{% endif %}" alt="">
+                        </div>
+
+                        <div class="comment_info">
+                            <div class="comment__name">
+                               {% trans "By:" %} {{ comment.profile.user.username }}
+                            </div>
+                            {% else %}
+                            <div class="comment__name">{% trans "Anonymous" %}</div>
+                            {% endif %}
+
+                            <div class="comment__body">
+                                {{ comment.translated_body|linebreaks }}
+                            </div>
+                         </div>
+                </div>
+
+                <div class="comment__date">
+                    {% trans "Commented on:" %} {{ comment.created|date:"l, F jS, Y - g:i A" }}
+                </div>
+                <div class="divider"></div>
+                    {% empty %}
+                <p>{% trans "There are no comments yet." %}</p>
+                  <div class="divider"></div>
+                {% endfor %}
+              
+        </div>
+        <div class="comment__share">
+            <div class="share_text">{% trans "Share This Blog Via Email" %}</div>
+            <a  href="{% url 'blog:post_share'  post.id post.publish.year post.publish.month post.publish.day post.slug%}" class="share button">{% trans "Click to Share" %}</a>
+        </div>
+                </div>
+    </section>
+    {% endblock %}

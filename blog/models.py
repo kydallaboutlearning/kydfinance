@@ -7,7 +7,7 @@ from django.urls import reverse
 from django.utils import timezone
 from accounts.models import Profile
 from django.utils.translation import gettext_lazy as _
-
+from ckeditor.fields import RichTextField
 
 
 # Custom manager for published posts
@@ -27,7 +27,7 @@ class BlogPost(TranslatableModel):
         # Translatable fields
     translations = TranslatedFields(
         title=models.CharField(max_length=250),
-        body=models.TextField(),
+        body=RichTextField(),
     )
     author = models.ForeignKey(
         User,

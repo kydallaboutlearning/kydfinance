@@ -75,6 +75,15 @@
       </ul>
     </div>
   </li>
+{% if user.is_authenticated %}
+    <li class="navbar__btn mobile">
+            <a href="{% url 'logout-form' %}" class="navbar__links">{% trans "Sign Out" %}</a>
+          </li>
+        </ul>
+        <div class="navbar__btn desktop ">
+          <a href="{% url 'logout-form' %}" class="button log">{% trans "Sign Out" %}</a>
+        </div>
+  {% else %}
           <li class="navbar__btn mobile log">
             <a href="{% url 'register' %}" class="navbar__links ">{% trans "Sign In" %}</a>
           </li>
@@ -82,14 +91,17 @@
           <li class="navbar__btn mobile">
             <a href="{% url 'register' %}" class="navbar__links">{% trans "Sign Up" %}</a>
           </li>
+       
         </ul>
 
+
         <div class="navbar__btn desktop ">
-          <a href="{% url 'social:begin' 'google-oauth2' %}" class="button log">{% trans "Sign In" %}</a>
+          <a href="{% url 'login' %}" class="button log">{% trans "Sign In" %}</a>
         </div>
         <div class="navbar__btn desktop">
           <a href="{% url 'register' %}" class="button">{% trans "Sign Up" %}</a>
         </div>
+           {% endif %}
         <div class="navbar__toggle" id="mobile-menu">
           <div class="toggle"></div>
           <div class="toggle"></div>
@@ -98,6 +110,21 @@
       </div>
     </nav>
   </header>
+ 
+     {% if messages %}
+  <div class="messages">
+    {% for message in messages %}
+      <div class="alert {{ message.tags }} alert-dismissible fade show">
+        <span>{{ message }}</span>
+        <button type="button" class="close" onclick="this.parentElement.style.display='none';">
+          &times;
+        </button>
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
+
+
 
 {% block content %} {% endblock content %}
 

@@ -26,7 +26,7 @@
 
         <div class="comment">
 
-            {% with comments.count as total_comments %}
+            {% with all_comments.count as total_comments %}
                 <div class="comment_count">
                     <h2>{{ total_comments }} comment{{ total_comments|pluralize }}</h2>
                 </div>
@@ -56,14 +56,28 @@
                 </div>
 
                 <div class="comment__date">
-                    {% trans "Date:" %} {{ comment.created|date:"l, F jS, Y" }}
+                    {% trans "Commented on:" %} {{ comment.created|date:"l, F jS, Y - g:i A" }}
                 </div>
                 <div class="divider"></div>
                     {% empty %}
                 <p>{% trans "There are no comments yet." %}</p>
                   <div class="divider"></div>
                 {% endfor %}
+                <a href="{% url 'blog:comment_list'  post.id post.publish.year post.publish.month post.publish.day post.slug%}">See All comments</a>
+               
+
               
+        </div>
+        <div class="comment__form">
+            <form method="post">
+                {% csrf_token %}
+                {{ commentform.as_p }}
+            <button type="submit">{% trans "Post Comment" %}</button>
+            </form>
+        </div>
+        <div class="comment__share">
+            <div class="share_text">{% trans "Share This Blog Via Email" %}</div>
+            <a class='button' href="{% url 'blog:post_share'  post.id post.publish.year post.publish.month post.publish.day post.slug%}" class="share button">{% trans "Click to Share" %}</a>
         </div>
     </section>
 </body>

@@ -1,9 +1,8 @@
 from .models import Profile
+from django.contrib.auth import get_user_model
 
 
 
-
-from .models import Profile
 
 def user_profile(request):
     """Context processor to make the user's profile available in all templates."""
@@ -16,3 +15,5 @@ def user_profile(request):
         profile = None  # If user is not logged in, return None
 
     return {"profile": profile}
+
+

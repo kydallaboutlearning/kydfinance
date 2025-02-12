@@ -17,6 +17,7 @@ from django.utils.translation import gettext_lazy as _
 def LandingPageView(request):
     posts = BlogPost.published.all()[:3]
     current_language = get_language()
+    user = request.user
 
     if request.method == "POST":
         Newsletterform = NewsletterSub(request.POST)
