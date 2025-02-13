@@ -192,7 +192,7 @@ DEBUG = True
 
 
 
-# setting upthe url
+# setting up the url
 
 LOGIN_REDIRECT_URL = 'main:landing-page'
 LOGIN_URL = 'login'
