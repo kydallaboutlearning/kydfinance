@@ -1669,9 +1669,10 @@ a.step-button:hover {
 }
 
 .profile__image img {
+	
     height: 100%;
     width: 100%;
-    object-fit: cover;  /* Ensures the image fully covers the container */
+    object-fit: cover; 
 	border-radius: 10px;
 }
 
