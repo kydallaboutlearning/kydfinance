@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-23 19:29+0100\n"
+"POT-Creation-Date: 2025-02-14 21:23+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,14 +18,857 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\kyd_finance\settings\base.py:118
+#: .\accounts\forms.py:14 .\main\forms.py:16
+msgid "Email"
+msgstr ""
+
+#: .\accounts\forms.py:17 .\main\forms.py:19
+msgid "Enter your Email"
+msgstr ""
+
+#: .\accounts\forms.py:21 .\accounts\forms.py:27
+msgid "Username"
+msgstr ""
+
+#: .\accounts\forms.py:24
+msgid "Enter your Username"
+msgstr ""
+
+#: .\accounts\forms.py:26
+msgid "Password"
+msgstr ""
+
+#: .\accounts\forms.py:30
+msgid "Enter your Password"
+msgstr ""
+
+#: .\accounts\forms.py:31
+msgid "The password must be a minimum of 4 characters "
+msgstr ""
+
+#: .\accounts\forms.py:40 .\main\forms.py:26
+msgid "Email already exists"
+msgstr ""
+
+#: .\accounts\forms.py:52
+msgid "Both fields are required."
+msgstr ""
+
+#: .\accounts\urls.py:12
+msgid "DashBoard/"
+msgstr ""
+
+#: .\accounts\urls.py:13
+msgid "register/"
+msgstr ""
+
+#: .\accounts\urls.py:14
+msgid "logout-form/"
+msgstr ""
+
+#: .\blog\admin.py:36 .\blog\models.py:72 .\blog\views.py:81
+msgid "[No Body]"
+msgstr ""
+
+#: .\blog\admin.py:37
+msgid "Comment Body"
+msgstr ""
+
+#: .\blog\forms.py:16
+msgid "Enter your comment"
+msgstr ""
+
+#: .\blog\forms.py:17
+msgid "What's your thought on this..."
+msgstr ""
+
+#: .\blog\forms.py:27
+msgid "Comment must be at least 10 characters long."
+msgstr ""
+
+#: .\blog\forms.py:30
+msgid "Comment cannot exceed 500 characters."
+msgstr ""
+
+#: .\blog\forms.py:35
+msgid "Your comment contains spam-like content."
+msgstr ""
+
+#: .\blog\forms.py:46
+msgid "Enter your name."
+msgstr ""
+
+#: .\blog\forms.py:52
+msgid "Enter your email."
+msgstr ""
+
+#: .\blog\forms.py:59
+msgid "Enter the recipient's email."
+msgstr ""
+
+#: .\blog\forms.py:67
+msgid "Write your comment here..."
+msgstr ""
+
+#: .\blog\models.py:23
+msgid "Draft"
+msgstr ""
+
+#: .\blog\models.py:24
+msgid "Published"
+msgstr ""
+
+#: .\blog\models.py:35
+msgid "blog_posts"
+msgstr ""
+
+#: .\blog\models.py:66 .\blog\models.py:69
+msgid "[No Title]"
+msgstr ""
+
+#: .\blog\models.py:121
+msgid "Comment by"
+msgstr ""
+
+#: .\blog\urls.py:14
+msgid "post_class/"
+msgstr ""
+
+#: .\blog\urls.py:15
+msgid "<int:year>/<int:month>/<int:day>/<slug:post>/<int:id>/"
+msgstr ""
+
+#: .\blog\urls.py:16
+msgid "comments/<int:post_id>/<int:year>/<int:month>/<int:day>/<slug:post>/"
+msgstr ""
+
+#: .\blog\urls.py:17
+msgid "share/<int:post_id>/<int:year>/<int:month>/<int:day>/<slug:post>/"
+msgstr ""
+
+#: .\blog\views.py:100
+msgid "Your comment has been posted!"
+msgstr ""
+
+#: .\blog\views.py:104
+msgid "Sorry, you need to log in or create an account to comment."
+msgstr ""
+
+#: .\kyd_finance\settings\base.py:138
 msgid "English"
 msgstr ""
 
-#: .\kyd_finance\settings\base.py:119
+#: .\kyd_finance\settings\base.py:139
+msgid "Spanish"
+msgstr ""
+
+#: .\kyd_finance\settings\base.py:140
 msgid "French"
 msgstr ""
 
-#: .\kyd_finance\settings\base.py:120
-msgid "Spanish"
+#: .\kyd_finance\urls.py:38
+msgid "account/"
+msgstr ""
+
+#: .\kyd_finance\urls.py:40
+msgid "social-auth/"
+msgstr ""
+
+#: .\kyd_finance\urls.py:41
+msgid "blog/"
+msgstr ""
+
+#: .\main\views.py:29
+msgid "Welcome to KYD-FINANCE Newsletter"
+msgstr ""
+
+#: .\main\views.py:37
+msgid "Subscription successful! Check your email."
+msgstr ""
+
+#: .\template\accounts_base.html:15
+msgid "KYD FINANCES"
+msgstr ""
+
+#: .\template\accounts_base.html:22 .\template\base.html:26
+msgid "Main Navigation"
+msgstr ""
+
+#: .\template\accounts_base.html:24 .\template\base.html:28
+#: .\template\base.html:190 .\template\base.html:193
+msgid "KYD-FINANCE"
+msgstr ""
+
+#: .\template\base.html:16
+msgid "KYD-FINANCES"
+msgstr ""
+
+#: .\template\base.html:31
+msgid "Home"
+msgstr ""
+
+#: .\template\base.html:37
+msgid "Features"
+msgstr ""
+
+#: .\template\base.html:42
+msgid "Services"
+msgstr ""
+
+#: .\template\base.html:45 .\template\base.html:160
+msgid "Contact Us"
+msgstr ""
+
+#: .\template\base.html:48
+msgid "Blog"
+msgstr ""
+
+#: .\template\base.html:55
+msgid "Pricing"
+msgstr ""
+
+#: .\template\base.html:80 .\template\base.html:84
+msgid "Sign Out"
+msgstr ""
+
+#: .\template\base.html:88 .\template\base.html:99
+#: .\template\registration\login.html:26
+msgid "Sign In"
+msgstr ""
+
+#: .\template\base.html:92 .\template\base.html:102
+msgid "Sign Up"
+msgstr ""
+
+#: .\template\base.html:137
+msgid "Join our newsletter"
+msgstr ""
+
+#: .\template\base.html:138
+msgid ""
+"Subscribe to our newsletter to get the latest updates on our services and "
+"promotions."
+msgstr ""
+
+#: .\template\base.html:142
+msgid "Subscribe"
+msgstr ""
+
+#: .\template\base.html:151
+msgid "About Us"
+msgstr ""
+
+#: .\template\base.html:152
+msgid "How it works"
+msgstr ""
+
+#: .\template\base.html:153
+msgid "Testimonials"
+msgstr ""
+
+#: .\template\base.html:154
+msgid "Careers"
+msgstr ""
+
+#: .\template\base.html:155
+msgid "Investors"
+msgstr ""
+
+#: .\template\base.html:156
+msgid "Terms of Service"
+msgstr ""
+
+#: .\template\base.html:161
+msgid "Contact"
+msgstr ""
+
+#: .\template\base.html:162
+msgid "Support"
+msgstr ""
+
+#: .\template\base.html:163
+msgid "Destinations"
+msgstr ""
+
+#: .\template\base.html:164
+msgid "Sponsorships"
+msgstr ""
+
+#: .\template\base.html:170
+msgid "Videos"
+msgstr ""
+
+#: .\template\base.html:171
+msgid "Submit Video"
+msgstr ""
+
+#: .\template\base.html:172
+msgid "Ambassadors"
+msgstr ""
+
+#: .\template\base.html:173
+msgid "Agency"
+msgstr ""
+
+#: .\template\base.html:174
+msgid "Influencer"
+msgstr ""
+
+#: .\template\base.html:178
+msgid "Social Media"
+msgstr ""
+
+#: .\template\base.html:179
+msgid "Facebook"
+msgstr ""
+
+#: .\template\base.html:180
+msgid "Instagram"
+msgstr ""
+
+#: .\template\base.html:181
+msgid "Linkedin"
+msgstr ""
+
+#: .\template\base.html:182
+msgid "Github"
+msgstr ""
+
+#: .\template\base.html:193
+msgid "All rights reserved"
+msgstr ""
+
+#: .\template\blog\post\comments\comment_form.html:5
+msgid "| Leave a Comment"
+msgstr ""
+
+#: .\template\blog\post\comments\comment_form.html:26
+msgid "Leave a Comment"
+msgstr ""
+
+#: .\template\blog\post\comments\comment_form.html:30
+msgid "Submit Comment"
+msgstr ""
+
+#: .\template\blog\post\comments\comment_form.html:34
+msgid "Want to reply instead?"
+msgstr ""
+
+#: .\template\blog\post\comments\comment_form.html:34
+msgid "Reply here"
+msgstr ""
+
+#: .\template\blog\post\comments\list.html:6
+msgid "Comments on "
+msgstr ""
+
+#: .\template\blog\post\comments\list.html:13
+msgid "Comment(s) on "
+msgstr ""
+
+#: .\template\blog\post\comments\list.html:34
+#: .\template\blog\post\detail.html:46
+msgid "By:"
+msgstr ""
+
+#: .\template\blog\post\comments\list.html:37
+#: .\template\blog\post\detail.html:49
+msgid "Anonymous"
+msgstr ""
+
+#: .\template\blog\post\comments\list.html:47
+#: .\template\blog\post\detail.html:59
+msgid "Commented on:"
+msgstr ""
+
+#: .\template\blog\post\comments\list.html:51
+#: .\template\blog\post\detail.html:63
+msgid "There are no comments yet."
+msgstr ""
+
+#: .\template\blog\post\comments\list.html:57
+#: .\template\blog\post\detail.html:79
+msgid "Share This Blog Via Email"
+msgstr ""
+
+#: .\template\blog\post\comments\list.html:58
+#: .\template\blog\post\detail.html:80
+msgid "Click to Share"
+msgstr ""
+
+#: .\template\blog\post\detail.html:75
+msgid "Post Comment"
+msgstr ""
+
+#: .\template\blog\post\list.html:7 .\template\blog\post\list.html:13
+#: .\template\main\home.html:188
+msgid "BLOG"
+msgstr ""
+
+#: .\template\blog\post\list.html:14 .\template\main\home.html:189
+msgid "Enjoy Our Blogs on all relevant topics"
+msgstr ""
+
+#: .\template\blog\post\list.html:36 .\template\main\home.html:212
+msgid "Read More"
+msgstr ""
+
+#: .\template\blog\post\list.html:41 .\template\main\home.html:217
+msgid "Author:"
+msgstr ""
+
+#: .\template\blog\post\list.html:44 .\template\main\home.html:220
+msgid "Date:"
+msgstr ""
+
+#: .\template\blog\post\share.html:6 .\template\blog\post\share.html:37
+#: .\template\registration\logoutform.html:19
+msgid "Share this post"
+msgstr ""
+
+#: .\template\blog\post\share.html:19
+msgid "E-mail successfully sent"
+msgstr ""
+
+#: .\template\blog\post\share.html:26 .\template\blog\post\share.html:41
+msgid "Get back To the post"
+msgstr ""
+
+#: .\template\blog\post\share.html:26 .\template\blog\post\share.html:41
+msgid "Back"
+msgstr ""
+
+#: .\template\blog\post\share.html:31
+msgid "Share"
+msgstr ""
+
+#: .\template\blog\post\share_email.html:6
+msgid "Recommended Blog Post"
+msgstr ""
+
+#: .\template\blog\post\share_email.html:74
+#, python-format
+msgid "%(cd.name)s recommends this blog post!"
+msgstr ""
+
+#: .\template\blog\post\share_email.html:79
+#, python-format
+msgid ""
+"\n"
+"                    <strong>%(name)s</strong> (<a href=\"mailto:%(email)s\" "
+"style=\"color: #0073e6;\">%(email)s</a>) thought you might enjoy reading:\n"
+"                "
+msgstr ""
+
+#: .\template\blog\post\share_email.html:87
+msgid "Read Full Post"
+msgstr ""
+
+#: .\template\blog\post\share_email.html:91
+msgid "Personal Message:"
+msgstr ""
+
+#: .\template\blog\post\share_email.html:98
+msgid " All Rights Reserved."
+msgstr ""
+
+#: .\template\main\home.html:16
+msgid ""
+"\n"
+"              Welcome to KYD-FINANCES\n"
+"              THE BEST IN THE FINANCIAL MARKET TODAY\n"
+"            "
+msgstr ""
+
+#: .\template\main\home.html:22
+msgid ""
+"\n"
+"              Join us today to enjoy our top-notch services.\n"
+"              Here you have access to pay bills all over the world with "
+"little charges.\n"
+"              You would also have access to a free credit card worth $250.\n"
+"              Exclusively for new users only.\n"
+"            "
+msgstr ""
+
+#: .\template\main\home.html:29
+msgid "Join Us Now"
+msgstr ""
+
+#: .\template\main\home.html:32 .\template\registration\login.html:38
+#: .\template\registration\register.html:32
+msgid "Hero Image"
+msgstr ""
+
+#: .\template\main\home.html:37
+msgid "Seamless"
+msgstr ""
+
+#: .\template\main\home.html:38
+msgid "Reliable"
+msgstr ""
+
+#: .\template\main\home.html:39
+msgid "Efficient"
+msgstr ""
+
+#: .\template\main\home.html:40
+msgid "Trustworthy"
+msgstr ""
+
+#: .\template\main\home.html:41 .\template\main\home.html:70
+msgid "Innovative"
+msgstr ""
+
+#: .\template\main\home.html:42
+msgid "UserFriendly"
+msgstr ""
+
+#: .\template\main\home.html:43
+msgid "Convenient"
+msgstr ""
+
+#: .\template\main\home.html:44
+msgid "Hassle free"
+msgstr ""
+
+#: .\template\main\home.html:52
+msgid "Why choose us"
+msgstr ""
+
+#: .\template\main\home.html:54
+msgid ""
+"\n"
+"              Whether you’re looking for a secure platform to manage your "
+"savings or a comprehensive tool for investing,\n"
+"              KYD-FINANCES has you covered. Here are a few reasons why you "
+"should choose us.\n"
+"            "
+msgstr ""
+
+#: .\template\main\home.html:63
+msgid "Secure"
+msgstr ""
+
+#: .\template\main\home.html:65
+msgid ""
+"Your privacy and security are our top priority. We use industry-leading "
+"encryption protocols and comply with the strictest financial regulations to "
+"ensure your information is always safe."
+msgstr ""
+
+#: .\template\main\home.html:72
+msgid ""
+"We’re constantly updating our platform to provide you with the best tools "
+"and features."
+msgstr ""
+
+#: .\template\main\home.html:77
+msgid "24/7 Support"
+msgstr ""
+
+#: .\template\main\home.html:79
+msgid ""
+"Our team is available 24/7 to help you with any questions or issues you may "
+"have."
+msgstr ""
+
+#: .\template\main\home.html:84
+msgid "Affordable Pricing & Plans"
+msgstr ""
+
+#: .\template\main\home.html:86
+msgid ""
+"Get started today with our free plan, or choose from one of our affordable "
+"premium options that offer even more advanced features and support."
+msgstr ""
+
+#: .\template\main\home.html:95
+msgid "Choose the plan that fits you best"
+msgstr ""
+
+#: .\template\main\home.html:98
+msgid "Monthly"
+msgstr ""
+
+#: .\template\main\home.html:103
+msgid "Yearly"
+msgstr ""
+
+#: .\template\main\home.html:106
+#, python-format
+msgid "save 20%%"
+msgstr ""
+
+#: .\template\main\home.html:117
+msgid "Basic Plan"
+msgstr ""
+
+#: .\template\main\home.html:119
+msgid "$10/month"
+msgstr ""
+
+#: .\template\main\home.html:120
+msgid "$8/month"
+msgstr ""
+
+#: .\template\main\home.html:121 .\template\main\home.html:144
+#: .\template\main\home.html:167
+msgid "Get Started"
+msgstr ""
+
+#: .\template\main\home.html:122
+msgid "Everything you need to start"
+msgstr ""
+
+#: .\template\main\home.html:126 .\template\main\home.html:149
+#: .\template\main\home.html:172
+msgid "Features:"
+msgstr ""
+
+#: .\template\main\home.html:129
+msgid "Free account with a $250 sign-up bonus."
+msgstr ""
+
+#: .\template\main\home.html:131
+msgid "Cashback on utility bill payments."
+msgstr ""
+
+#: .\template\main\home.html:140
+msgid "Standard Plan"
+msgstr ""
+
+#: .\template\main\home.html:142
+msgid "$30/month"
+msgstr ""
+
+#: .\template\main\home.html:143
+msgid "$15/month"
+msgstr ""
+
+#: .\template\main\home.html:145
+msgid "You just get more values"
+msgstr ""
+
+#: .\template\main\home.html:152
+msgid "You get Everything in Basic plan"
+msgstr ""
+
+#: .\template\main\home.html:154
+msgid "All on the Budget tools"
+msgstr ""
+
+#: .\template\main\home.html:163
+msgid "Premium Plan"
+msgstr ""
+
+#: .\template\main\home.html:165
+msgid "$80/month"
+msgstr ""
+
+#: .\template\main\home.html:166
+msgid "$55/month"
+msgstr ""
+
+#: .\template\main\home.html:168
+msgid "Perfect for business owners"
+msgstr ""
+
+#: .\template\main\home.html:175
+msgid "Everything in Standard plan"
+msgstr ""
+
+#: .\template\main\home.html:177
+msgid "Unlimited transactions."
+msgstr ""
+
+#: .\template\newsletter\newsletter_email.html:7
+#, python-format
+msgid "Welcome to %(site_name)s Newsletter"
+msgstr ""
+
+#: .\template\newsletter\newsletter_email.html:11
+msgid "Your Weekly Insights into Smart Investing & Financial Growth"
+msgstr ""
+
+#: .\template\newsletter\newsletter_email.html:15
+#, python-format
+msgid ""
+"Thank you for subscribing to %(site_name)s! Each week, we bring you expert "
+"insights, market trends, and financial strategies to help you make informed "
+"decisions and grow your wealth."
+msgstr ""
+
+#: .\template\newsletter\newsletter_email.html:18
+msgid "Here’s what you can expect:"
+msgstr ""
+
+#: .\template\newsletter\newsletter_email.html:20
+msgid "Market updates and economic trends"
+msgstr ""
+
+#: .\template\newsletter\newsletter_email.html:21
+msgid "Investment strategies from top financial experts"
+msgstr ""
+
+#: .\template\newsletter\newsletter_email.html:22
+msgid "Personal finance tips to help you save and invest smarter"
+msgstr ""
+
+#: .\template\newsletter\newsletter_email.html:26
+msgid ""
+"Stay ahead in the financial world—your journey to smarter investing starts "
+"now!"
+msgstr ""
+
+#: .\template\newsletter\newsletter_email.html:30
+msgid "Best regards,"
+msgstr ""
+
+#: .\template\registration\logged_out.html:15
+msgid "Logged Out"
+msgstr ""
+
+#: .\template\registration\logged_out.html:18
+msgid "log-in again"
+msgstr ""
+
+#: .\template\registration\login.html:19
+msgid "Login to Your Account"
+msgstr ""
+
+#: .\template\registration\login.html:30
+msgid "New here?"
+msgstr ""
+
+#: .\template\registration\login.html:30
+msgid "Create your account"
+msgstr ""
+
+#: .\template\registration\login.html:31
+#: .\template\registration\register.html:25
+msgid "Forgot your password?"
+msgstr ""
+
+#: .\template\registration\login.html:31
+#: .\template\registration\register.html:25
+msgid "Reset it"
+msgstr ""
+
+#: .\template\registration\logoutform.html:7
+msgid "Log Out"
+msgstr ""
+
+#: .\template\registration\logoutform.html:9
+#: .\template\registration\logoutform.html:33
+msgid "Are You sure wanna logout ?"
+msgstr ""
+
+#: .\template\registration\logoutform.html:10
+#: .\template\registration\logoutform.html:34
+msgid "If yes click the button below, if no"
+msgstr ""
+
+#: .\template\registration\logoutform.html:10
+msgid "Get back to shopping"
+msgstr ""
+
+#: .\template\registration\logoutform.html:31
+msgid "LogOut"
+msgstr ""
+
+#: .\template\registration\logoutform.html:34
+msgid "Get back to Homepage"
+msgstr ""
+
+#: .\template\registration\logoutform.html:39
+msgid "Log Out "
+msgstr ""
+
+#: .\template\registration\password_change_done.html:16
+msgid "Change your passsword"
+msgstr ""
+
+#: .\template\registration\password_change_done.html:19
+msgid "Go back home"
+msgstr ""
+
+#: .\template\registration\password_change_done.html:19
+#: .\template\registration\password_change_form.html:22
+#: .\template\registration\password_reset_confirm.html:27
+#: .\template\registration\password_reset_done.html:21
+msgid "Go back to home page"
+msgstr ""
+
+#: .\template\registration\password_change_form.html:15
+msgid "Change your password"
+msgstr ""
+
+#: .\template\registration\password_change_form.html:19
+msgid "Change Password"
+msgstr ""
+
+#: .\template\registration\password_change_form.html:22
+msgid "have a change of mind?"
+msgstr ""
+
+#: .\template\registration\password_reset_confirm.html:15
+msgid "Reset your password"
+msgstr ""
+
+#: .\template\registration\password_reset_confirm.html:17
+msgid "Please enter your new password twice:"
+msgstr ""
+
+#: .\template\registration\password_reset_confirm.html:21
+msgid "Change Your Password"
+msgstr ""
+
+#: .\template\registration\password_reset_confirm.html:27
+#: .\template\registration\password_reset_done.html:21
+msgid "Go back home: "
+msgstr ""
+
+#: .\template\registration\password_reset_done.html:15
+msgid "Reset your passsword"
+msgstr ""
+
+#: .\template\registration\password_reset_done.html:19
+msgid "We've emailed you instructions for setting your password."
+msgstr ""
+
+#: .\template\registration\password_reset_form.html:17
+msgid "Reset Your Password"
+msgstr ""
+
+#: .\template\registration\password_reset_form.html:21
+msgid "Send email"
+msgstr ""
+
+#: .\template\registration\password_reset_form.html:23
+msgid "Had a change of mind?"
+msgstr ""
+
+#: .\template\registration\password_reset_form.html:23
+msgid "BHome page"
+msgstr ""
+
+#: .\template\registration\register.html:6
+msgid "| Sign Up"
+msgstr ""
+
+#: .\template\registration\register.html:16
+msgid "Create Your Account"
+msgstr ""
+
+#: .\template\registration\register.html:20
+msgid "Create Account"
+msgstr ""
+
+#: .\template\registration\register.html:24
+msgid "Already have an account?"
+msgstr ""
+
+#: .\template\registration\register.html:24
+msgid "Log In"
 msgstr ""
