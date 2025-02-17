@@ -52,3 +52,9 @@ LOGGING = {
 }
 
 
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+SECURE_SSL_REDIRECT = True
+
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+DEFAULT_FILE_STORAGE = "django.core.files.storage.FileSystemStorage"
