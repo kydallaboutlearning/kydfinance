@@ -12,13 +12,15 @@ DEBUG = False
 # setting up the allowed hosts
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost','hot-lola-kyd-45e60a62.koyeb.app']
 
-
 STORAGES = {
-    # ...
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",  
+    },
     "staticfiles": {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
 }
+
 
 
 DATABASES = {
