@@ -6,7 +6,7 @@ load_dotenv()
 
 # setting up debug mode
 
-DEBUG = True
+DEBUG = False
 
 
 # setting up the allowed hosts
