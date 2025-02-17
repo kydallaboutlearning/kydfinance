@@ -5,9 +5,9 @@ charset-normalizer==3.4.1
 cryptography==42.0.8
 decouple==0.0.7
 defusedxml==0.8.0rc2
-Django==5.1.6
+Django==5.1.5
 django-ckeditor==6.7.2
-django-ckeditor-5==0.2.16
+django-ckeditor-5==0.2.17
 django-environ==0.12.0
 django-extensions==3.2.3
 django-js-asset==3.0.1
@@ -15,12 +15,15 @@ django-parler==2.3
 django-phonenumber-field==8.0.0
 django-rosetta==0.10.1
 environ==1.0
+gunicorn==23.0.0
 idna==3.10
 MarkupSafe==3.0.2
 oauthlib==3.2.2
+packaging==24.2
 phonenumbers==8.13.53
 pillow==11.1.0
 polib==1.2.0
+psycopg2-binary==2.9.10
 pycparser==2.22
 PyJWT==2.10.1
 pyOpenSSL==24.1.0
@@ -34,4 +37,6 @@ social-auth-core==4.5.4
 sqlparse==0.5.3
 tzdata==2024.2
 urllib3==2.3.0
+waitress==3.0.2
 Werkzeug==3.0.2
+whitenoise==6.9.0
