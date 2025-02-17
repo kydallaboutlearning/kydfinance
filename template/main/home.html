@@ -205,7 +205,7 @@
         </div>
 
         <div class="blog__body">
-          {{ post.get_translated_body|truncatewords:10 }}...
+          {{ post.get_translated_body|striptags|truncatewords:8|safe }}...
         </div>
 
         <div class="blog__button">
